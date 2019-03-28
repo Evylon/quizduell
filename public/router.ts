@@ -3,14 +3,12 @@
 
 import vueRouter from 'vue-router'
 
-import { RouteNames } from './customTypes/enums/RouteNames'
-
-const homeVue = lazyLoadComponent('./components/content/home')
+const questionVue = lazyLoadComponent('./components/content/question')
 const page404Vue = lazyLoadComponent('./components/content/page404')
 
 const routes = [
-  { path: '/', component: homeVue, name: RouteNames.home },
-  { path: '*', component: page404Vue, name: RouteNames.route404 }
+  { path: '/', component: questionVue, name: 'question' },
+  { path: '*', component: page404Vue, name: '404' }
 ]
 
 const router = new vueRouter({
