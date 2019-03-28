@@ -1,0 +1,12 @@
+version: "3.2"
+services:
+  quizduell-ui:
+    ports:
+      - 10000:10000
+      - 5859:5859 #for remote debugging
+    build:
+      context: ../../
+      dockerfile: ./docker/local/Dockerfile
+    volumes:
+      - ../../:/root/
+    command: sh -c "npm rebuild node-sass && npx nodemon"

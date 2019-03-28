@@ -1,0 +1,10 @@
+.git/
+node_modules/
+.vscode
+
+# optional
+*.yml
+
+# it will be renamed by convert script.
+# needs to be excluded to let scripts/test.sh work
+configs/config-legacy.js

@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "allowJs": false,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "module": "commonjs",
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "outDir": "./build"
+  },
+  "exclude": [
+    "./node_modules",
+    "./build",
+    "./dist",
+    "./public",
+    "./test",
+    "./configs"
+  ]
+}
