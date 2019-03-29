@@ -1,4 +1,5 @@
 import * as express from 'express'
+import * as _ from 'lodash'
 import * as Timeout from 'await-timeout'
 
 import * as logger from './logger'
@@ -7,7 +8,12 @@ import Question from '../shared/Question'
 interface QuestionDefinition {
   text: string,
   answers: string[],
+  correctAnswer: string,
   category: string,
+}
+
+interface QuestionResponses {
+  [userid: string]: number
 }
 
 enum State {
@@ -29,6 +35,7 @@ class API {
   private state: State
   private currentQuestionIndex: number
   private currentQuestionStartTimestamp: number
+  private currentQuestionResponses: QuestionResponses
 
   constructor() {
     this.router = express.Router()
@@ -51,8 +58,15 @@ class API {
     })
 
     this.router.put('/remote/question/:index/answer/:userid', (req, res) => {
-      if (this.state === State.RemoteQuestion || this.state === State.RemoteQuestionGracePeriod) {
-        res.status(500).send('Not implemented')
+      const index = parseInt(req.params.index, 10)
+      if ((this.state === State.RemoteQuestion || this.state === State.RemoteQuestionGracePeriod) && index === this.currentQuestionIndex) {
+        if (this.currentQuestionResponses[req.params.userid] !== undefined) {
+          res.status(409).send()
+          return
+        }
+        this.currentQuestionResponses[req.params.userid] = req.body.answerIndex
+        logger.info(this.currentQuestionResponses, 'Received response')
+        res.status(200).send()
       } else {
         res.status(403).send()
       }
@@ -71,11 +85,13 @@ class API {
     this.state = State.RemoteQuestion
     this.currentQuestionIndex = index
     this.currentQuestionStartTimestamp = (new Date()).getTime()
+    this.currentQuestionResponses = {}
     await this.timer.set(QUESTION_TIME)
 
     logger.info(`Starting question ${index} RemoteQuestionGracePeriod`)
     this.state = State.RemoteQuestionGracePeriod
     await this.timer.set(QUESTION_GRACE_TIME)
+    // TODO evaluate results
 
     logger.info(`Starting question ${index} LocalQuestion`)
     this.state = State.LocalQuestion
@@ -86,7 +102,7 @@ class API {
     return {
       index,
       remainingTime: (QUESTION_TIME - elapsedTime) / 1000,
-      ...this.questions[index]
+      ..._.omit(this.questions[index], 'correctAnswer')
     }
   }
 }
