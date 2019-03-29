@@ -6,11 +6,11 @@ import * as _ from 'lodash'
 import * as util from 'util'
 import * as path from 'path'
 
-import * as Logger from './logger'
+import * as webpack from 'webpack'
+import * as WebpackDevMiddleware from 'webpack-dev-middleware'
+import * as webpackConfig from '../webpack.config.js'
 
 class Server {
-
-  private logger = Logger
 
   private enableGzip = true
   private port = 10000
@@ -40,18 +40,14 @@ class Server {
   }
 
   private async useWebpackMiddleware(): Promise<void> {
-    // Only required in development
-    // Importing at the top means the live container installs
-    // the modules and copies the webpack config unnecessarily
-    const webpack = await import('webpack')
-    const webpackDevMiddleware = await import('webpack-dev-middleware')
-    const webpackConfig = await import('../webpack.config.js')
 
-    const middlewareOptions: any = {
-      noInfo: true,
-      publicPath: webpackConfig.output.publicPath
+    const middlewareOptions: WebpackDevMiddleware.Options = {
+      logLevel: 'info',
+      publicPath: path.resolve(__dirname, '..', 'dist')
     }
-    this.app.use(webpackDevMiddleware(webpack(webpackConfig), middlewareOptions))
+    const webpackCompiler = webpack(webpackConfig)
+    const middleware = WebpackDevMiddleware(webpackCompiler, middlewareOptions)
+    this.app.use(middleware)
   }
 
   private setupRoutes(): void {
