@@ -1,27 +1,24 @@
 <template>
   <div class="container" id="app">
-    <!-- INITIAL-SETUP Navbar goes here if you use one -->
     <router-view></router-view>
   </div>
 </template>
 
 <script lang='ts'>
-
-export default {
-  watch: {
-    $route(endPath) {
-      console.log('End path!')
-    }
-  }
-}
+export default {}
 </script>
 
 <style lang="scss">
 
 body {
-  font-family: Helvetica, sans-serif; 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   background-color: #3A99C5;
   margin: 0px;
+}
+
+#app {
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 </style>

@@ -19,18 +19,18 @@
     </div>
 
     <div id="area_answers_complete">
-      <div id=area_answers_1row class="area_answers">
-        <button class="button_answer">{{ answer1 }}</button>
-        <button class="button_answer">{{ answer2 }}</button>
+      <div id="area_answers_1row" class="area_answers">
+        <button class="button_answer" v-on:click="selectAnswer(1)">{{ answer1 }}</button>
+        <button class="button_answer" v-on:click="selectAnswer(2)">{{ answer2 }}</button>
       </div>
-      <div id=area_answers_2row class="area_answers">
-        <button class="button_answer">{{ answer3 }}</button>
-        <button class="button_answer">{{ answer4 }}</button>
+      <div id="area_answers_2row" class="area_answers">
+        <button class="button_answer" v-on:click="selectAnswer(3)">{{ answer3 }}</button>
+        <button class="button_answer" v-on:click="selectAnswer(4)">{{ answer4 }}</button>
       </div>
     </div>
 
     <div id="area_time">
-      <div class="X"></div>
+      <div id="time_progress"></div>
     </div>
   </div>
 </template>
@@ -57,6 +57,11 @@ export default {
   },
   created() {
     this.message = 'Runde 1 gegen Gisi'
+  },
+  methods: {
+    selectAnswer(index: number) {
+      alert(index)
+    }
   }
 }
 </script>

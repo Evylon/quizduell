@@ -1,4 +1,4 @@
-const merge = require('lodash.merge')
+const _ = require('lodash')
 const baseConfig = require('./webpack/webpack.base.config')
 
 const devConfig = {
@@ -16,7 +16,7 @@ const imageModuleRule = {
   }
 }
 
-const config = merge({}, devConfig, baseConfig)
+const config = _.merge({}, devConfig, baseConfig)
 config.module.rules.push(imageModuleRule)
 
 module.exports = config
