@@ -47,6 +47,5 @@
     "no-document-write" : true,
     "no-invalid-regexp" : true,
     "promise-must-complete": true
-
   }
 }

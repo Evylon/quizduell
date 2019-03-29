@@ -8,5 +8,6 @@ services:
       context: ../../
       dockerfile: ./docker/local/Dockerfile
     volumes:
-      - ../../:/root/
+      - ../../private:/root/private
+      - ../../public:/root/public
     command: sh -c "npm rebuild node-sass && npx nodemon"

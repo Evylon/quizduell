@@ -18,8 +18,6 @@
   "exclude": [
     "./node_modules",
     "./build",
-    "./private",
-    "./test",
-    "./configs"
+    "./private"
   ]
 }
