@@ -10,4 +10,5 @@ services:
     volumes:
       - ../../private:/root/private
       - ../../public:/root/public
+      - ../../shared:/root/shared
     command: sh -c "npm rebuild node-sass && npx nodemon"
