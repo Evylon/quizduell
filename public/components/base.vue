@@ -17,4 +17,11 @@ export default {
 </script>
 
 <style lang="scss">
+
+body {
+  font-family: Helvetica, sans-serif; 
+  background-color: #3A99C5;
+  margin: 0px;
+}
+
 </style>
