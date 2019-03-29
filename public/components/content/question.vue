@@ -10,22 +10,22 @@
     <div id="area_question">
       <div id="text_category_container">
         <div id="area_category">
-          <div id=text_category>{{ category }}</div>
+          <div id=text_category>{{ question.category }}</div>
         </div>
       </div>
       <div id="text_question_container">
-        <span id="text_question" >{{ question }}</span> 
+        <span id="text_question">{{ question.text }}</span> 
       </div>
     </div>
 
     <div id="area_answers_complete">
       <div id="area_answers_1row" class="area_answers">
-        <button class="button_answer" v-on:click="selectAnswer(1)">{{ answer1 }}</button>
-        <button class="button_answer" v-on:click="selectAnswer(2)">{{ answer2 }}</button>
+        <button class="button_answer" v-on:click="selectAnswer(0)">{{ question.answers[0] }}</button>
+        <button class="button_answer" v-on:click="selectAnswer(1)">{{ question.answers[1] }}</button>
       </div>
       <div id="area_answers_2row" class="area_answers">
-        <button class="button_answer" v-on:click="selectAnswer(3)">{{ answer3 }}</button>
-        <button class="button_answer" v-on:click="selectAnswer(4)">{{ answer4 }}</button>
+        <button class="button_answer" v-on:click="selectAnswer(2)">{{ question.answers[2] }}</button>
+        <button class="button_answer" v-on:click="selectAnswer(3)">{{ question.answers[3] }}</button>
       </div>
     </div>
 
@@ -36,31 +36,22 @@
 </template>
 
 <script lang="ts">
+import Question from '../../../shared/Question'
+
 export default {
   props: {
-    exampleProp: {
-      type: String,
-      // VSCode auto fill shows this note when adding props to components
-      note: 'An example description'
-    }
-  },
-  data() {
-    return {
-      message: 'Runde 1 gegen Gisi',
-      category: 'Medien & Unterhaltung',
-      question: 'Wer ist die tollste Freundin der Welt?',
-      answer1: 'Melli',
-      answer2: 'Melanie',
-      answer3: 'Hasi',
-      answer4: 'M.A.'
+    question: {
+      type: Object,
+      note: 'Question'
     }
   },
   created() {
-    this.message = 'Runde 1 gegen Gisi'
+    this.message = `Runde ${this.question.index} gegen Gisi`
   },
   methods: {
     selectAnswer(index: number) {
-      alert(index)
+      // Pass to parent component
+      this.$emit('answer-selected', index)
     }
   }
 }

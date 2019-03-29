@@ -3,13 +3,11 @@
 
 import vueRouter from 'vue-router'
 
-const questionVue = lazyLoadComponent('./components/content/question')
-const waitVue = lazyLoadComponent('./components/content/wait')
+const familyVue = lazyLoadComponent('./components/content/family')
 const page404Vue = lazyLoadComponent('./components/content/page404')
 
 const routes = [
-  { path: '/', component: questionVue, name: 'question' },
-  { path: '/wait', component: waitVue, name: 'wait' },
+  { path: '/', component: familyVue, name: 'family' },
   { path: '*', component: page404Vue, name: '404' }
 ]
 
