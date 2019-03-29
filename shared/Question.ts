@@ -1,8 +1,9 @@
 interface Question {
   index: number,
-  questionText: string,
+  text: string,
   answers: string[],
-  category: string
+  category: string,
+  remainingTime: number // seconds
 }
 
 export default Question
