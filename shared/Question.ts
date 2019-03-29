@@ -4,3 +4,5 @@ interface Question {
   answers: string[],
   category: string
 }
+
+export default Question
