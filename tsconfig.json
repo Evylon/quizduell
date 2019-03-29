@@ -14,7 +14,8 @@
       "es2018",
       "dom"
     ],
-    "outDir": "./build"
+    "outDir": "./build",
+    "resolveJsonModule": true,
   },
   "exclude": [
     "./node_modules",

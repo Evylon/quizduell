@@ -1,14 +1,14 @@
-import * as express from 'express'
-import * as compression from 'compression'
 import * as bodyParser from 'body-parser'
-
-import * as _ from 'lodash'
-import * as util from 'util'
+import * as compression from 'compression'
+import * as express from 'express'
 import * as path from 'path'
-
+import * as util from 'util'
 import * as webpack from 'webpack'
 import * as WebpackDevMiddleware from 'webpack-dev-middleware'
+
 import * as webpackConfig from '../webpack.config.js'
+
+import API from './API'
 
 class Server {
 
@@ -51,15 +51,14 @@ class Server {
   }
 
   private setupRoutes(): void {
-
+    const api = new API()
     this.app.get('/', (req, res) => {
       res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'))
     })
 
-    this.app.get('/health', (req, res) => {
-      res.sendStatus(200)
-    })
+    this.app.use('/api', api.router)
   }
 }
 
-export { Server }
+export { Server };
+
