@@ -1,5 +1,4 @@
 import * as express from 'express'
-import * as expressPinoLogger from 'express-pino-logger'
 import * as compression from 'compression'
 import * as bodyParser from 'body-parser'
 

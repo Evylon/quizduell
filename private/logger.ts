@@ -11,7 +11,7 @@ function info(dataOrMessage: any, maybeMessage?: string) {
     message = dataOrMessage
   }
   data.msg = message
-  const logEntry = JSON.stringify(data)
+  const logEntry = JSON.stringify(data, null, 2)
   console.info(logEntry)
 }
 
@@ -31,7 +31,7 @@ function error(dataOrMessage: any, maybeMessage?: string) {
   data.errorMessage = error.message
   data.errorStack = error.stack
   data.msg = message
-  const logEntry = JSON.stringify(data)
+  const logEntry = JSON.stringify(data, null, 2)
   console.error(logEntry)
 }
 
