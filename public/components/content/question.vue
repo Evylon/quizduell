@@ -63,11 +63,6 @@ export default {
 
 <style lang="scss">
 
-body {
-  background-color: #3A99C5;
-  margin: 0px 0px 0px 0px;
-}
-
 #quiz_container {
   max-width: 700px;
   margin: 0 auto;
@@ -111,20 +106,10 @@ body {
   margin-right: 5px;
   height: 200px;
   font-size:18px;
-  font-family:arial, helvetica, sans-serif; 
 
-  border:0px solid #d7dada; 
-  -webkit-border-radius: 4px; 
-  -moz-border-radius: 4px;
+  border:0px solid #d7dada;
   border-radius: 4px;
-  background-color: #f4f5f5; 
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f4f5f5), to(#dfdddd));
-  background-image: -webkit-linear-gradient(top, #f4f5f5, #dfdddd);
-  background-image: -moz-linear-gradient(top, #f4f5f5, #dfdddd);
-  background-image: -ms-linear-gradient(top, #f4f5f5, #dfdddd);
-  background-image: -o-linear-gradient(top, #f4f5f5, #dfdddd);
   background-image: linear-gradient(to bottom, #f4f5f5, #dfdddd);
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f4f5f5, endColorstr=#dfdddd);
 }
 
 #text_category_container {
@@ -134,17 +119,11 @@ body {
 }
 
 #area_category {
-  display:inline-block; 
-  padding: 10px 10px 10px 10px;
+  display: inline-block; 
+  padding: 10px;
   border-radius: 0 0 8px 8px;
   box-shadow: 1px 1px 2px  #7d7e7d;
-  background-color: #DA579D; background-image: -webkit-gradient(linear, left top, left bottom, from(#DA579D), to(#BF0063));
-  background-image: -webkit-linear-gradient(top, #DA579D, #BF0063);
-  background-image: -moz-linear-gradient(top, #DA579D, #BF0063);
-  background-image: -ms-linear-gradient(top, #DA579D, #BF0063);
-  background-image: -o-linear-gradient(top, #DA579D, #BF0063);
   background-image: linear-gradient(to bottom, #DA579D, #BF0063);
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#DA579D, endColorstr=#BF0063);
 }
 
 #text_category {
@@ -181,22 +160,20 @@ body {
   width: 50%;
   height: 150px;
   margin: 5px 5px 5px 5px;
-  border:0px solid #616261; -webkit-border-radius: 4px; -moz-border-radius: 4px;border-radius: 4px;font-size:18px;font-family:arial, helvetica, sans-serif; padding: 10px 10px 10px 10px; text-decoration:none; display:inline-block;text-shadow: -1px -1px 0 rgba(0,0,0,0.3); color: #FFFFFF;
-  background-color: #7d7e7d;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#7d7e7d), to(#181D26));
-  background-image: -webkit-linear-gradient(top, #7d7e7d, #181D26);
-  background-image: -moz-linear-gradient(top, #7d7e7d, #181D26);
-  background-image: -ms-linear-gradient(top, #7d7e7d, #181D26);
-  background-image: -o-linear-gradient(top, #7d7e7d, #181D26);
+  border: 0px solid #616261;
+  border-radius: 4px;
+  font-size: 18px;
+  padding: 10px;
+  text-decoration: none;
+  display: inline-block;
+  text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+  color: #FFFFFF;
   background-image: linear-gradient(to bottom, #7d7e7d, #181D26);
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#7d7e7d, endColorstr=#181D26);
 }   
-        
-.button_answer:hover{
-  border:0px solid #4a4b4a;
-  background-color: #646464; background-image: -webkit-gradient(linear, left top, left bottom, from(#646464), to(#040507));
-  background-image: -webkit-linear-gradient(top, #646464, #040507);
-  background-image: -moz-linear-gradient(top, #646464, #040507);
+
+.button_answer:hover {
+  border: 0px solid #4a4b4a;
+  background-image: linear-gradient(to bottom, #646464, #040507);
 }
 
 #area_time {
