@@ -7,25 +7,25 @@
       <div id="text_roundIndicator">{{ message }}</div>
     </div>
 
-    <div id="area_question" class="X">
+    <div id="area_question">
       <div id="text_category_container">
         <div id="area_category">
-          <div id=text_category>{{category}}</div>
+          <div id=text_category>{{ category }}</div>
         </div>
       </div>
       <div id="text_question_container">
-        <span id="text_question" >{{question}}</span> 
+        <span id="text_question" >{{ question }}</span> 
       </div>
     </div>
 
     <div id="area_answers_complete">
       <div id=area_answers_1row class="area_answers">
-        <button class="button_answer">{{answer1}}</button>
-        <button class="button_answer">{{answer2}}</button>
+        <button class="button_answer">{{ answer1 }}</button>
+        <button class="button_answer">{{ answer2 }}</button>
       </div>
       <div id=area_answers_2row class="area_answers">
-        <button class="button_answer">{{answer3}}</button>
-        <button class="button_answer">{{answer4}}</button>
+        <button class="button_answer">{{ answer3 }}</button>
+        <button class="button_answer">{{ answer4 }}</button>
       </div>
     </div>
 
