@@ -1,3 +1,5 @@
+#!/bin/bash
+
 directory=$(pwd)
 if [[ $directory == *"/scripts" ]]; then
   cd ..
