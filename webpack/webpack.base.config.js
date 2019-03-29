@@ -1,6 +1,5 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
@@ -15,9 +14,6 @@ module.exports = {
     // Gives dist clean slate on each run
     // https://github.com/johnagan/clean-webpack-plugin
     new CleanWebpackPlugin(['dist']),
-    // Stores a cache of webpack bundles to speed up reloads
-    // https://github.com/mzgoddard/hard-source-webpack-plugin
-    new HardSourceWebpackPlugin(),
     // Enables us to use a custom base html file
     // https://github.com/jantimon/html-webpack-plugin
     new HtmlWebpackPlugin({
