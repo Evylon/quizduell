@@ -1,11 +1,5 @@
 <template>
   <div id="quiz_container">
-    <div id="area_status">
-      <div class="box_roundIndicator"></div>
-      <div class="box_roundIndicator"></div>
-      <div class="box_roundIndicator"></div>
-      <div id="text_roundIndicator">{{ message }}</div>
-    </div>
 
     <div id="area_question">
       <div id="text_category_container">
@@ -46,7 +40,7 @@
         <div id="time_progress"
           ref="progress"
           v-bind:class="{ started }"
-          v-bind:style="{ transitionDuration: `${timeRemainingSeconds}s`, width: `${timeRemainingPercent}%` }"
+          v-bind:style="{ transitionDuration: `${timeRemainingMilliseconds}ms`, width: `${timeRemainingPercent}%` }"
         ></div>
       </div>
     </div>
@@ -56,6 +50,7 @@
 <script lang="ts">
 import * as Timeout from 'await-timeout'
 
+import { QUESTION_TIME } from '../../../shared/constants'
 import Question from '../../../shared/Question'
 
 export default {
@@ -68,18 +63,21 @@ export default {
   data() {
     return {
       selectedAnswer: undefined,
-      timeRemainingSeconds: 20,
-      timeRemainingPercent: 100,
+      timeRemainingMilliseconds: this.question.remainingTime,
+      timeRemainingPercent: this.question.remainingTime / QUESTION_TIME * 100,
       started: false
     }
   },
   async created() {
-    this.message = `Runde ${this.question.index} gegen Gisi`
+    this.message = `Frage ${this.question.index} gegen Gisi`
     // Doesn't work for some reason :(
     // this.maxTimerWidth = this.$refs.progress.clientWidth
+    console.log(this.question.remainingTime)
+    console.log(this.timeRemainingMilliseconds)
+    console.log(this.timeRemainingPercent)
     await Timeout.set(1)
     this.timeRemainingPercent = 2
-    await Timeout.set(this.timeRemainingSeconds * 1000)
+    await Timeout.set(this.timeRemainingMilliseconds)
     this.selectNoAnswer()
   },
   methods: {
@@ -107,17 +105,7 @@ body {
 #quiz_container {
   max-width: 700px;
   margin: 0 auto;
-}
-
-#area_status {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 10px;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 10px;
-  align-items: center;
+  padding: 20px;
 }
 
 .box_roundIndicator {
@@ -235,8 +223,7 @@ body {
   background-color: #81ff3e;
   height: 100%;
   width: 100%;
-  transition: width;
-  transition-duration: 20s;
+  transition: width linear;
 }
 
 </style>

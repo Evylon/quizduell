@@ -12,6 +12,7 @@
 <script lang="ts">
 import * as Timeout from 'await-timeout'
 
+import { QUESTION_TIME, QUESTION_GRACE_TIME } from '../../../shared/constants'
 import waitVue from '../content/wait.vue'
 import questionVue from '../content/question.vue'
 import Question from '../../../shared/Question'
@@ -26,18 +27,8 @@ export default {
   },
   data() {
     return {
-      currentState: 'question', // 'wait',
-      currentQuestion: {
-        "text": "Where do vanished objects go?",
-        "answers": [
-            "Into non-being, that is to say everything",
-            "Your mom",
-            "42",
-            "..."
-        ],
-        "correctAnswerIndex": 0,
-        "category": "1 & 2"
-      } // undefined
+      currentState: 'wait',
+      currentQuestion: undefined
     }
   },
   computed: {
@@ -78,12 +69,12 @@ export default {
       console.log(`Saved answer, index: ${index}, userId: ${userId}`)
       await Timeout.set(2_000) // Keep the selected answer visible for a short time
       this.setState('wait')
-      await Timeout.set(60_000)
+      await Timeout.set(QUESTION_TIME + QUESTION_GRACE_TIME)
       this.fetchQuestion()
     },
     async noAnswerSelected(): Promise<void> {
       this.setState('wait')
-      await Timeout.set(60_000)
+      await Timeout.set(QUESTION_TIME + QUESTION_GRACE_TIME)
       this.fetchQuestion()
     }
   }
