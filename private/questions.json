@@ -2,10 +2,10 @@
   {
     "text": "Where do vanished objects go?",
     "answers": [
-        "Into non-being, that is to say everything",
-        "Your mom",
-        "42",
-        "..."
+      "Into non-being, that is to say everything",
+      "Your mom",
+      "42",
+      "..."
     ],
     "correctAnswerIndex": 0,
     "category": "Harry Potter"
@@ -13,10 +13,10 @@
   {
     "text": "What came first, the phoenix or the flame?",
     "answers": [
-        "Phoenix",
-        "Egg",
-        "Flame",
-        "A circle has no beginning"
+      "Phoenix",
+      "Egg",
+      "Flame",
+      "A circle has no beginning"
     ],
     "correctAnswerIndex": 3,
     "category": "Harry Potter"
@@ -24,12 +24,133 @@
   {
     "text": "Was ist 28/7",
     "answers": [
-        "7 Geißlein",
-        "4 Torten",
-        "28 Wackersteine",
-        "3 Wecker"
+      "7 Geißlein",
+      "4 Torten",
+      "28 Wackersteine",
+      "3 Wecker"
     ],
     "correctAnswerIndex": 1,
     "category": "Otto Waalkes"
+  },
+  {
+    "text": "Welches ist die Höchstgeschwindigkeit einer unbeladenen Schwalbe?",
+    "answers": [
+      "50km/h",
+      "70km/h",
+      "90km/h",
+      "200km/h"
+    ],
+    "correctAnswerIndex": 1,
+    "category": "Kokosnüsse"
+  },
+  {
+    "text": "Welches ist die Höchstgeschwindigkeit einer unbeladenen Schwalbe?",
+    "answers": [
+      "50km/h",
+      "70km/h",
+      "90km/h",
+      "200km/h"
+    ],
+    "correctAnswerIndex": 1,
+    "category": "Kokosnüsse"
+  },
+  {
+    "question": "Welchen Warnhinweis sieht man häufig im Alltag?",
+    "answers": [
+      "Böll findet nicht statt!",
+      "Grass entfällt!",
+      "Brecht abgesagt!",
+      "Frisch gestrichen!"
+    ],
+    "correctAnswerIndex": 3,
+    "category": "50€-Frage"
+  },
+  {
+    "question": "1/4 ist ...?",
+    "answers": [
+      "bank Raub",
+      "dieb Stahl",
+      "scheck Betrug",
+      "ein Bruch"
+    ],
+    "correctAnswerIndex": 3,
+    "category": "50€-Frage"
+  },
+  {
+    "question": "Wenn man eins von zwei Löchern im Reifen flickt, dann wird er ...?",
+    "answers": [
+      "bildhauer",
+      "maler",
+      "dichter",
+      "sänger"
+    ],
+    "correctAnswerIndex": 2,
+    "category": "50€-Frage"
+  },
+  {
+    "question": "Was dient nicht zur Verhütung?",
+    "answers": [
+      "Kondom",
+      "Coitus interruptus",
+      "Glücksspirale",
+      "Pille"
+    ],
+    "correctAnswerIndex": 2,
+    "category": "50€-Frage"
+  },
+  {
+    "question": "Wobei handelt es sich um ein beliebtes Getränk an kalten Tagen?",
+    "answers": [
+      "call me strawberry",
+      "heiße Zitrone",
+      "nennt mich Kirsche",
+      "bin die Banane"
+    ],
+    "correctAnswerIndex": 1,
+    "category": "50€-Frage"
+  },
+  {
+    "question": "Was kommt in Ostasien häufig auf den Tisch?",
+    "answers": [
+      "Sonicht",
+      "Soschoneher",
+      "Soja",
+      "Sovielleicht"
+    ],
+    "correctAnswerIndex": 2,
+    "category": "50€-Frage"
+  },
+  {
+    "question": "Die Dinosaurier lebten ...?",
+    "answers": [
+      "in der Kreide",
+      "knietief im Dispo",
+      "auf Pump",
+      "mit Schulden"
+    ],
+    "correctAnswerIndex": 0,
+    "category": "50€-Frage"
+  },
+  {
+    "question": "Scotty, der Ingenieur des Raumschiffs Enterprise, war bei den \"Ausflügen\" meist nicht dabei, weil er ...?",
+    "answers": [
+      "angestellte",
+      "beamte",
+      "selbstständige",
+      "vorgesetzte"
+    ],
+    "correctAnswerIndex": 1,
+    "category": "50€-Frage"
+  },
+  {
+    "question": "Wofür gibt es einen Oscar?",
+    "answers": [
+      "Toller Chirurg",
+      "Exquisites Skalpell",
+      "Bester Schnitt",
+      "Fabelhafte OP"
+    ],
+    "correctAnswerIndex": 2,
+    "category": "50€-Frage"
   }
 ]
