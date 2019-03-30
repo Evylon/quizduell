@@ -197,7 +197,7 @@ class API {
     for (const answerKey of Object.keys(question.answers)) {
       const answerIndex = parseInt(answerKey, 10)
       const remoteAnswerCount = Object.values(this.currentQuestionRemoteAnswers).filter(i => i === answerIndex).length
-      const remoteAnswerPercentage = (remoteAnswerCount / totalRemoteAnswerCount) * 100
+      const remoteAnswerPercentage = totalRemoteAnswerCount === 0 ? 0 : (remoteAnswerCount / totalRemoteAnswerCount) * 100
       remoteAnswerPercentages[answerIndex] = remoteAnswerPercentage
       if (remoteAnswerPercentage > remoteMaxPercentage) {
         remoteMaxPercentage = remoteAnswerPercentage
