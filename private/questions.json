@@ -8,6 +8,28 @@
         "..."
     ],
     "correctAnswerIndex": 0,
-    "category": "1 & 2"
+    "category": "Harry Potter"
+  },
+  {
+    "text": "What came first, the phoenix or the flame?",
+    "answers": [
+        "Phoenix",
+        "Egg",
+        "Flame",
+        "A circle has no beginning"
+    ],
+    "correctAnswerIndex": 3,
+    "category": "Harry Potter"
+  },
+  {
+    "text": "Was ist 28/7",
+    "answers": [
+        "7 Geißlein",
+        "4 Torten",
+        "28 Wackersteine",
+        "3 Wecker"
+    ],
+    "correctAnswerIndex": 1,
+    "category": "Otto Waalkes"
   }
 ]
