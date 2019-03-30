@@ -7,58 +7,62 @@
       <div id="header" class="font_shadow">{{ brand }}</div>
 
       <div id="container_result_overall"> 
-        <img id="avatar_1" src="../../assets/avatar_gisi.png" />
+        <div id="avatar_local"></div>
+        <div id="avatar_local_name" class="avatar_name_styling font_shadow">{{ localName }}</div> 
         <div id="score_overall" class="font_shadow">{{ localScore }} - {{ remoteScore }}</div>
-        <img id="avatar_2" src="../../assets/avatar_family.png" />
-        <div id=avatar_name_1 class="avatar_name_styling font_shadow">{{ localName }}</div> 
-        <div id=avatar_name_2 class="avatar_name_styling font_shadow">{{ remoteName }}</div> 
+        <div id="avatar_remote"></div>
+        <div id="avatar_remote_name" class="avatar_name_styling font_shadow">{{ remoteName }}</div> 
       </div>
 
       <div v-for="round in rounds" class="round_grid">
         <div class="round_number font_shadow">
-          <div>{{ roundTitle }} {{ round.index }}</div>
+          <div>{{ roundTitle }} {{ round.index + 1 }}</div>
         </div>
         <div class="round_result">
           <div class="round_result_avatar_1 round_result_avatar">
             <div class="question_result"
               v-bind:class="{
-                correct: round.results[0].localCorrect === true,
-                wrong: round.results[0].localCorrect === false
+                correct: round.completed && round.results[0].localCorrect === true,
+                wrong: round.completed && round.results[0].localCorrect === false
               }"
             ></div>
             <div class="question_result"
               v-bind:class="{
-                correct: round.results[1].localCorrect === true,
-                wrong: round.results[1].localCorrect === false
+                correct: round.completed && round.results[1].localCorrect === true,
+                wrong: round.completed && round.results[1].localCorrect === false
               }"
             ></div>
             <div class="question_result"
               v-bind:class="{
-                correct: round.results[2].localCorrect === true,
-                wrong: round.results[2].localCorrect === false
+                correct: round.completed && round.results[2].localCorrect === true,
+                wrong: round.completed && round.results[2].localCorrect === false
               }"
             ></div>
           </div>
         
-          <div class="topic">{{ gameTitle }}</div>
+          <div class="topic"
+              v-bind:class="{
+                hidden: !round.completed
+              }"
+          >{{ gameTitle }}</div>
 
           <div class="round_result_avatar_2 round_result_avatar">
             <div class="question_result"
               v-bind:class="{
-                correct: round.results[0].remoteCorrect === true,
-                wrong: round.results[0].remoteCorrect === false
+                correct: round.completed && round.results[0].remoteCorrect === true,
+                wrong: round.completed && round.results[0].remoteCorrect === false
               }"
             ></div>
             <div class="question_result"
               v-bind:class="{
-                correct: round.results[1].remoteCorrect === true,
-                wrong: round.results[1].remoteCorrect === false
+                correct: round.completed && round.results[1].remoteCorrect === true,
+                wrong: round.completed && round.results[1].remoteCorrect === false
               }"
             ></div>
             <div class="question_result"
               v-bind:class="{
-                correct: round.results[2].remoteCorrect === true,
-                wrong: round.results[2].remoteCorrect === false
+                correct: round.completed && round.results[2].remoteCorrect === true,
+                wrong: round.completed && round.results[2].remoteCorrect === false
               }"
             ></div>
           </div>
@@ -77,6 +81,7 @@ import Result from '../../../shared/Result'
 
 interface Round {
   index: number,
+  completed: boolean,
   results: Result[]
 }
 
@@ -98,21 +103,26 @@ export default {
   },
   computed: {
     localScore: function(): number {
-      return _.filter(this.results, result => result.localCorrect === true).length
+      return _.filter(this.results, result => result && result.localCorrect === true).length
     },
     remoteScore: function(): number {
-      return _.filter(this.results, result => result.remoteCorrect === true).length
+      return _.filter(this.results, result => result && result.remoteCorrect === true).length
     },
     rounds: function(): Round[] {
       const rounds: Round[] = []
       let roundIndex = 0
       for (let i = 2; i < this.results.length; i += 3) {
+        const results0 = this.results[i - 2]
+        const results1 = this.results[i - 1]
+        const results2 = this.results[i]
+        const completed = !!results0 && !!results1 && !!results2
         const round: Round = {
           index: roundIndex,
+          completed,
           results: [
-            this.results[i - 2],
-            this.results[i - 1],
-            this.results[i]
+            results0,
+            results1,
+            results2
           ]
         }
         rounds.push(round)
@@ -205,10 +215,19 @@ export default {
 
 /* Child elements from container_result_overall */
 
-#avatar_1 {
+#avatar_local {
   grid-area: column_1;
   width: 80px;
   height: 68px;
+  background-image: url('../../assets/avatar_gisi.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#avatar_local_name {
+  grid-area: avatar_name_1;
+  text-align: center;
 }
 
 #score_overall {
@@ -217,20 +236,17 @@ export default {
   text-align: center;
 }
 
-#avatar_2 {
+#avatar_remote {
   grid-area: column_3;
   width: 80px;
   height: 68px;
-  
+  background-image: url('../../assets/avatar_family.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-#avatar_name_1 {
-  grid-area: avatar_name_1;
-  text-align: center;
-   
-}
-
-#avatar_name_2 {
+#avatar_remote_name {
   grid-area: avatar_name_2;
   text-align: center;
 }
@@ -245,7 +261,7 @@ export default {
 .round_grid {
   display: grid;
   grid-template-rows: 1  1;
-  grid-template-columns: 1  ; 
+  grid-template-columns: 1;
   grid-template-areas:
     "round_name"
     "round_result"; 
@@ -263,12 +279,6 @@ export default {
   margin-bottom: 10px;
 }
 
-.round_result {
-  grid-area: round_result;
-  align-self: start;
-  justify-self: center;
-}
-
 .topic {
   text-align: center;
   margin-left:10px;
@@ -276,15 +286,29 @@ export default {
   font-size: 11pt;
 }
 
+.topic.hidden {
+  opacity: 0;
+}
+
 /* Styledefinition question result rectangle */
 
 .question_result {
-  background-color: #BEBEBD;
+  background: transparent;
   width: 30px;
   height: 10px;
   border-radius: 4px;
   padding: 10px;
   margin: 2px; 
+}
+
+.question_result.correct {
+  background: linear-gradient(to bottom, #88d03c, #77b634);
+  box-shadow: inset 0px -1.5px 0px rgba(0,0,0,.4), inset 0px 1.5px 0px rgba(255,255,255,.2);
+}
+
+.question_result.wrong {
+  background: linear-gradient(to bottom, #e23031, #c52d2f);
+  box-shadow: inset 0px -1.5px 0px rgba(0,0,0,.4), inset 0px 1.5px 0px rgba(255,255,255,.2);
 }
 
 .round_result_avatar {
@@ -295,25 +319,18 @@ export default {
 } 
 
 .round_result {
-  background-color:#0f678f;
+  background-color: #0f678f;
   border-radius: 8px; 
   grid-area: round_result;
   display:flex;
   flex-direction: row;
+  align-self: start;
+  justify-self: center;
   align-items: center;
   justify-content: center;
   padding: 2px 2px 2px 2px;
   margin-left: 10px;
-  margin-right:10px;
+  margin-right: 10px;
 }
 
-.correct {
-  background: linear-gradient(0deg, rgba(129,255,63,1) 0%, rgba(150,255,95,1) 100%);
-  box-shadow: inset 0px -1.5px 0px rgba(0,0,0,.4), inset 0px 1.5px 0px rgba(255,255,255,.2);
-}
-
-.wrong {
-  background: linear-gradient(4deg, rgba(255,51,24,1) 0%, rgba(255,88,65,1) 100%);
-  box-shadow: inset 0px -1.5px 0px rgba(0,0,0,.4), inset 0px 1.5px 0px rgba(255,255,255,.2);
-}
 </style>

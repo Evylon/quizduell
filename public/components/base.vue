@@ -25,6 +25,9 @@ body {
   color: #fff;
   margin: 0px;
   font-weight: 200;
+  background-image: url('../assets/background.svg');
+  background-size: cover;
+  background-position: bottom center;
 }
 
 #app {

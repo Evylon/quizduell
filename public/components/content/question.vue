@@ -125,12 +125,6 @@ export default {
 
 <style lang="scss">
 
-body {
-  background-image: url('../../assets/background.svg');
-  background-size: cover;
-  background-position: bottom center;
-}
-
 #quiz_container {
   max-width: 700px;
   margin: 0 auto;
