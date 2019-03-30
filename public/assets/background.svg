@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="2436px" height="2173px" viewBox="0 0 2436 2173" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>background</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#1075A4" offset="0%"></stop>
+            <stop stop-color="#3C9ECB" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#0F709C" offset="0%"></stop>
+            <stop stop-color="#3798C5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#0F709C" offset="0%"></stop>
+            <stop stop-color="#3798C5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#0F709C" offset="0%"></stop>
+            <stop stop-color="#3798C5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-5">
+            <stop stop-color="#0F709C" offset="0%"></stop>
+            <stop stop-color="#3798C5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-6">
+            <stop stop-color="#1D7EAB" offset="0%"></stop>
+            <stop stop-color="#3798C5" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="background" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="0" width="2436" height="2173"></rect>
+        <polygon id="middle" fill="url(#linearGradient-2)" points="1244.99878 2173 1329 0 1111 0 1188.29442 2173"></polygon>
+        <g id="right" transform="translate(1310.634773, 0.000000)">
+            <polygon id="Path-2" fill="url(#linearGradient-3)" points="1.13686838e-13 2173 247.51467 0 458.444102 0 60.6539634 2173"></polygon>
+            <polygon id="Path-3" fill="url(#linearGradient-4)" points="127.956576 2173 717.69448 0 927.810406 0 187.925301 2173"></polygon>
+            <polygon id="Path-4" fill="url(#linearGradient-5)" points="253.735569 2173 309.201212 2173 1125.36523 530.362009 1125.36523 49.358825"></polygon>
+            <polygon id="Path-5" fill="url(#linearGradient-6)" points="367.286875 2173 422.987267 2173 1125.36523 1198.41348 1125.36523 870.087973"></polygon>
+        </g>
+        <g id="left" transform="translate(563.000000, 1086.500000) scale(-1, 1) translate(-563.000000, -1086.500000) ">
+            <polygon id="Path-2" fill="url(#linearGradient-3)" points="1.13686838e-13 2173 247.51467 0 458.444102 0 60.6539634 2173"></polygon>
+            <polygon id="Path-3" fill="url(#linearGradient-4)" points="127.956576 2173 717.69448 0 927.810406 0 187.925301 2173"></polygon>
+            <polygon id="Path-4" fill="url(#linearGradient-5)" points="253.735569 2173 309.201212 2173 1125.36523 530.362009 1125.36523 49.358825"></polygon>
+            <polygon id="Path-5" fill="url(#linearGradient-6)" points="367.286875 2173 422.987267 2173 1125.36523 1198.41348 1125.36523 870.087973"></polygon>
+        </g>
+    </g>
+</svg>

@@ -20,22 +20,42 @@
 
     <div id="area_answers_complete">
       <div id="area_answers_1row" class="area_answers">
-        <button class="button_answer" v-on:click="selectAnswer(0)">{{ question.answers[0] }}</button>
-        <button class="button_answer" v-on:click="selectAnswer(1)">{{ question.answers[1] }}</button>
+        <button class="button_answer"
+          v-on:click="selectAnswer(0)"
+          v-bind:class="{ selected: selectedAnswer == 0 }"
+        >{{ question.answers[0] }}</button>
+        <button class="button_answer"
+          v-on:click="selectAnswer(1)"
+          v-bind:class="{ selected: selectedAnswer == 1 }"
+        >{{ question.answers[1] }}</button>
       </div>
       <div id="area_answers_2row" class="area_answers">
-        <button class="button_answer" v-on:click="selectAnswer(2)">{{ question.answers[2] }}</button>
-        <button class="button_answer" v-on:click="selectAnswer(3)">{{ question.answers[3] }}</button>
+        <button class="button_answer"
+          v-on:click="selectAnswer(2)"
+          v-bind:class="{ selected: selectedAnswer == 2 }"
+        >{{ question.answers[2] }}</button>
+        <button class="button_answer"
+          v-on:click="selectAnswer(3)"
+          v-bind:class="{ selected: selectedAnswer == 3 }"
+        >{{ question.answers[3] }}</button>
       </div>
     </div>
 
     <div id="area_time">
-      <div id="time_progress"></div>
+      <div id="time_box">
+        <div id="time_progress"
+          ref="progress"
+          v-bind:class="{ started }"
+          v-bind:style="{ transitionDuration: `${timeRemainingSeconds}s`, width: `${timeRemainingPercent}%` }"
+        ></div>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+import * as Timeout from 'await-timeout'
+
 import Question from '../../../shared/Question'
 
 export default {
@@ -45,19 +65,44 @@ export default {
       note: 'Question'
     }
   },
-  created() {
+  data() {
+    return {
+      selectedAnswer: undefined,
+      timeRemainingSeconds: 20,
+      timeRemainingPercent: 100,
+      started: false
+    }
+  },
+  async created() {
     this.message = `Runde ${this.question.index} gegen Gisi`
+    // Doesn't work for some reason :(
+    // this.maxTimerWidth = this.$refs.progress.clientWidth
+    await Timeout.set(1)
+    this.timeRemainingPercent = 2
+    await Timeout.set(this.timeRemainingSeconds * 1000)
+    this.selectNoAnswer()
   },
   methods: {
     selectAnswer(index: number) {
-      // Pass to parent component
+      this.selectedAnswer = index
+      // const currentTimerWidth = this.$refs.timeprogress.clientWidth
+      // this.timeRemainingPercent = (currentTimerWidth / this.maxTimerWidth).toFixed(0)
       this.$emit('answer-selected', index)
+    },
+    selectNoAnswer() {
+      this.$emit('no-answer-selected')
     }
   }
 }
 </script>
 
 <style lang="scss">
+
+body {
+  background-image: url('../../assets/background.svg');
+  background-size: cover;
+  background-position: bottom center;
+}
 
 #quiz_container {
   max-width: 700px;
@@ -143,7 +188,7 @@ export default {
 
 #area_answers_complete {
   margin-top: 10px;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 }
 
 .area_answers {
@@ -167,15 +212,31 @@ export default {
   background-image: linear-gradient(to bottom, #7d7e7d, #181D26);
 }   
 
+.button_answer.selected,
+.button_answer.selected:hover {
+  background-image: linear-gradient(to bottom, #1094ce, #0e7eb2);
+}
+
 .button_answer:hover {
   border: 0px solid #4a4b4a;
   background-image: linear-gradient(to bottom, #646464, #040507);
 }
 
-#area_time {
+#time_box {
   border-radius: 4px;
-  background-color: #3A99C5;
+  background-color: rgba(46,46,46,0.3);
   height: 50px;
+  margin: 5px;
+  padding: 5px;
+}
+
+#time_progress {
+  border-radius: 4px;
+  background-color: #81ff3e;
+  height: 100%;
+  width: 100%;
+  transition: width;
+  transition-duration: 20s;
 }
 
 </style>

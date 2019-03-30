@@ -1,5 +1,5 @@
 <template>
-  <h1>404 - Page not found</h1>
+  <h1 class="full-page">404 - Seite nicht gefunden</h1>
 </template>
 
 <script lang="ts">

@@ -1,48 +1,38 @@
 <template>
-  <div id="family-container">
+  <div id="local-container">
     <component
       v-bind:is="currentStateComponent"
       v-bind:question="currentQuestion"
       v-on:answer-selected="answerSelected"
     ></component>
-    <button v-on:click="start">Start</button>
-    <button v-on:click="fetchQuestion">Fetch question</button>
   </div>
 </template>
 
 <script lang="ts">
 import * as Timeout from 'await-timeout'
 
-import waitVue from './wait.vue'
-import questionVue from './question.vue'
+import logoVue from '../content/logo.vue'
+import questionVue from '../content/question.vue'
 import Question from '../../../shared/Question'
 
-const sampleQuestion: Question = {
-  index: 1,
-  text: 'Hallo',
-  answers: [
-    'Melli',
-    'Melanie',
-    'Hasi',
-    'M.A.'
-  ],
-  category: 'Medien & Unterhaltung',
-  remainingTime: 10
-}
-
 export default {
+  created: function() {
+    this.fetchQuestion()
+  },
   data() {
     return {
       currentState: 'wait',
-      currentQuestion: undefined
+      currentQuestion: undefined,
+      currentResults: undefined
     }
   },
   components: {
-    waitVue,
+    logoVue,
     questionVue
   },
   computed: {
     currentStateComponent: function(): string {
+      if (this.currentState === 'wait') return 'logoVue'
       return `${this.currentState}Vue`
     }
   },
@@ -50,14 +40,9 @@ export default {
     setState(state: string): void {
       this.currentState = state
     },
-    async start(): Promise<void> {
-      await fetch('http://localhost:10000/api/admin/start', {
-        method: 'POST'
-      })
-    },
     async fetchQuestion(): Promise<void> {
       while(true) {
-        const response = await fetch('http://localhost:10000/api/remote/question')
+        const response = await fetch(`${this.$store.state.baseUrl}/local/question`)
         if (response.status === 200) {
           const question = await response.json()
           console.log(`Received question: ${JSON.stringify(question)}`)
@@ -70,12 +55,11 @@ export default {
       }
     },
     async answerSelected(index: number): Promise<void> {
-      const userId = '1234567890' // TODO
       const questionIndex = this.currentQuestion.index
-      const reponse = await fetch(`http://localhost:10000/api/remote/question/${questionIndex}/answer/${userId}`, {
+      const reponse = await fetch(`${this.$store.state.baseUrl}/local/question/${questionIndex}/answer`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'  
+          'Content-Type': 'application/json'  
         },
         body: JSON.stringify({
           answerIndex: index
