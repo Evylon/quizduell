@@ -1,5 +1,5 @@
 <template>
-  <div id="family-container">
+  <div id="remote-container">
     <component
       v-bind:is="currentStateComponent"
       v-bind:question="currentQuestion"
