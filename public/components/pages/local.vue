@@ -4,6 +4,7 @@
       v-bind:is="currentStateComponent"
       v-bind:question="currentQuestion"
       v-bind:results="currentResults"
+      v-bind:timed="false"
       v-on:answer-selected="answerSelected"
     ></component>
   </div>

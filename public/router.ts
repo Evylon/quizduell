@@ -3,13 +3,13 @@
 
 import vueRouter from 'vue-router'
 
-const familyVue = lazyLoadComponent('./components/pages/family')
+const remoteVue = lazyLoadComponent('./components/pages/remote')
 const localVue = lazyLoadComponent('./components/pages/local')
 const adminVue = lazyLoadComponent('./components/pages/admin')
 const page404Vue = lazyLoadComponent('./components/pages/page404')
 
 const routes = [
-  { path: '/', component: familyVue, name: 'family' },
+  { path: '/', component: remoteVue, name: 'remote' },
   { path: '/local', component: localVue, name: 'local' },
   { path: '/admin', component: adminVue, name: 'admin' },
   { path: '*', component: page404Vue, name: '404' }

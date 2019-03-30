@@ -38,7 +38,7 @@ class API {
   }
   private currentQuestionLocalAnswer?: number
 
-  private results: Result[]
+  private results: (Result | null)[]
 
   constructor() {
     this.router = express.Router()
@@ -47,7 +47,8 @@ class API {
 
     this.questions = require('./questions.json')
 
-    this.results = []
+    // tslint:disable-next-line: prefer-array-literal
+    this.results = new Array(this.questions.length)
 
     this.setupRoutes()
   }
