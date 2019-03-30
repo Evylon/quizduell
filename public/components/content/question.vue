@@ -200,14 +200,27 @@ body {
   background-image: linear-gradient(to bottom, #7d7e7d, #181D26);
 }   
 
+.button_answer:focus, .button_answer:hover {
+  outline: none;
+}
+
 .button_answer.selected,
 .button_answer.selected:hover {
-  background-image: linear-gradient(to bottom, #1094ce, #0e7eb2);
+  animation: blink-animation 600ms 4 both;
 }
 
 .button_answer:hover {
   border: 0px solid #4a4b4a;
   background-image: linear-gradient(to bottom, #646464, #040507);
+}
+
+@keyframes blink-animation {
+  0%, 50%, 100% {
+      background-image: linear-gradient(to bottom, #1094ce, #0e7eb2);
+  }
+  51%, 99% {
+    background-image: linear-gradient(to bottom, #7d7e7d, #181D26);
+  }
 }
 
 #time_box {
