@@ -7,5 +7,5 @@
   "ignore": ["test/**/*", "public/**/*"],
   "nolazy" : true,
   "restartable": "rs",
-  "watch": ["configs/*", "private/**/*ts", "tsconfig.json"]
+  "watch": ["private/**/*ts",  "shared/**/*ts", "tsconfig.json"]
 }
