@@ -7,9 +7,9 @@
       <div id="header" class="font_shadow">{{ brand }}</div>
 
       <div id="container_result_overall"> 
-        <img id="avatar_1" src="../../assets/avatar_1.jpg" />
+        <img id="avatar_1" src="../../assets/avatar_gisi.png" />
         <div id="score_overall" class="font_shadow">{{ localScore }} - {{ remoteScore }}</div>
-        <img id="avatar_2" src="../../assets/avatar_2.jpg" />
+        <img id="avatar_2" src="../../assets/avatar_family.png" />
         <div id=avatar_name_1 class="avatar_name_styling font_shadow">{{ localName }}</div> 
         <div id=avatar_name_2 class="avatar_name_styling font_shadow">{{ remoteName }}</div> 
       </div>

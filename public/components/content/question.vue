@@ -53,7 +53,6 @@
     <div id="area_time" v-if="timed">
       <div id="time_box">
         <div id="time_progress"
-          ref="progress"
           v-bind:class="{ started }"
           v-bind:style="{ transitionDuration: `${timeRemainingMilliseconds}ms`, width: `${timeRemainingPercent}%` }"
         ></div>
@@ -92,8 +91,6 @@ export default {
   async created() {
     this.message = `Frage ${this.question.index} gegen Gisi`
     if (this.timed) {
-      // Doesn't work for some reason :(
-      // this.maxTimerWidth = this.$refs.progress.clientWidth
       console.log(this.question.remainingTime)
       console.log(this.timeRemainingMilliseconds)
       console.log(this.timeRemainingPercent)
@@ -106,8 +103,6 @@ export default {
   methods: {
     selectAnswer(index: number) {
       this.selectedAnswer = index
-      // const currentTimerWidth = this.$refs.timeprogress.clientWidth
-      // this.timeRemainingPercent = (currentTimerWidth / this.maxTimerWidth).toFixed(0)
       this.$emit('answer-selected', index)
     },
     selectNoAnswer() {
@@ -142,37 +137,18 @@ body {
   padding: 20px;
 }
 
-.box_roundIndicator {
-  background-color: #BEBEBD;
-  width: 30px;
-  height: 10px;
-  border-radius: 4px;
-  padding: 10px;
-  margin: 2px;
-}
-
-#text_roundIndicator {
-  margin-left: 20px;
-  color: #ffffff;
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 500;   
-}
-
 #area_question {
-
   display: flex;
   flex-direction: column;
   
-  border-radius: 4px;
   margin-left: 5px;
   margin-right: 5px;
-  height: 200px;
-  font-size:18px;
+  height: 30vh;
+  font-size: 18px;
 
-  border:0px solid #d7dada;
-  border-radius: 4px;
-  background-image: linear-gradient(to bottom, #f4f5f5, #dfdddd);
+  border: none;
+  border-radius: 8px;
+  background-image: linear-gradient(150deg, #f5f5f5, #c8c8c8);
 }
 
 #text_category_container {
@@ -185,27 +161,31 @@ body {
   display: inline-block; 
   padding: 10px;
   border-radius: 0 0 8px 8px;
-  box-shadow: 1px 1px 2px  #7d7e7d;
-  background-image: linear-gradient(to bottom, #DA579D, #BF0063);
+  box-shadow: inset 0px -1.5px 0px rgba(0, 0, 0, 0.2);
+  background-image: radial-gradient(#ff74ba, #db609d);
 }
 
 #text_category {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   color: #FFFFFF;
+  text-shadow: 0px 1px 0px rgba(0,0,0,0.1);
 }
 
 #text_question_container {
-  color: #575657;
-  font-size: 16px;
-  flex-grow: 3; 
+  flex-grow: 3;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px 20px 25px;
 }
 
 #text_question {
-  font-size: 18px;
+  color: #626262;
+  text-shadow: 0px 1px 0px rgba(255,255,255,0.4);
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
 }
 
 #area_answers_complete {
@@ -222,32 +202,41 @@ body {
 .button_answer {
   position: relative;
   width: 50%;
-  height: 150px;
-  margin: 5px 5px 5px 5px;
-  border: 0px solid #616261;
-  border-radius: 4px;
+  height: 25vh;
+  margin: 5px;
+  border: none;
+  border-radius: 6px;
   font-size: 18px;
-  padding: 10px;
+  padding: 10px 20px;
   text-decoration: none;
   display: inline-block;
-  text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
   color: #FFFFFF;
-  background-image: linear-gradient(to bottom, #7d7e7d, #181D26);
+  text-shadow: 0px 1px 0 rgba(0,0,0,0.8);
+  overflow:hidden;
+  background-image: linear-gradient(to bottom, #434343, #2b2b2b);
   box-shadow: inset 0px -1.5px 0px rgba(0,0,0,.4), inset 0px 1.5px 0px rgba(255,255,255,.2);
-} 
+}
+
+.button_answer:hover {
+  border: none;
+  background-image: linear-gradient(to bottom, #434343, #2b2b2b);
+  cursor: pointer;
+}
+
 .button_answer::after {
-  content:'';
+  content: '';
   position: absolute;
-  top:0;
-  left:0;
-  bottom:0;
-  width: var(--percentage);
-  background:rgba(0, 0, 0, .3);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--progress);
+  background: rgba(0, 0, 0, .2);
   border-radius: 4px;
   transition: width 1s;
 }
 
-.button_answer:focus, .button_answer:hover {
+.button_answer:focus,
+.button_answer:hover {
   outline: none;
 }
 
@@ -256,13 +245,8 @@ body {
   animation: blink-animation 600ms 4 both;
 }
 
-.button_answer:hover {
-  border: 0px solid #4a4b4a;
-  background-image: linear-gradient(to bottom, #646464, #040507);
-}
-
 .button_answer.correct {
-  background-image: linear-gradient(0deg, rgba(129,255,63,1) 0%, rgba(150,255,95,1) 100%);
+  background-image: linear-gradient(to bottom, #78cd1b, #65ae17);
 }
 
 .button_answer.selected.correct {
@@ -270,7 +254,7 @@ body {
 }
 
 .button_answer.wrong {
-  background-image: linear-gradient(4deg, rgba(255,51,24,1) 0%, rgba(255,88,65,1) 100%);
+  background-image: linear-gradient(to bottom, #df203e, #b92929);
 }
 
 .button_answer.selected.wrong {
@@ -282,7 +266,7 @@ body {
       background-image: linear-gradient(to bottom, #1094ce, #0e7eb2);
   }
   51%, 99% {
-    background-image: linear-gradient(to bottom, #7d7e7d, #181D26);
+    background-image: linear-gradient(to bottom, #434343, #2b2b2b);
   }
 }
 
@@ -291,7 +275,7 @@ body {
       background-image: linear-gradient(to bottom, #1094ce, #0e7eb2);
   }
   51%, 99% {
-    background-image: linear-gradient(0deg, rgba(129,255,63,1) 0%, rgba(150,255,95,1) 100%);
+    background-image: linear-gradient(to bottom, #78cd1b, #65ae17);
   }
 }
 
@@ -300,10 +284,9 @@ body {
       background-image: linear-gradient(to bottom, #1094ce, #0e7eb2);
   }
   51%, 99% {
-    background-image: linear-gradient(4deg, rgba(255,51,24,1) 0%, rgba(255,88,65,1) 100%);
+    background-image: linear-gradient(to bottom, #df203e, #b92929);
   }
 }
-
 
 .precentage_bubble { 
   --arrow-size: .6em;
@@ -350,26 +333,23 @@ body {
   z-index: 10;
 }
 
-
 .hasResults .precentage_bubble {
   left: var(--percentage);
   transform: scale(1);
   opacity: 1;
 }
 
-
-
 #time_box {
-  border-radius: 4px;
+  border-radius: 6px;
   background-color: rgba(46,46,46,0.3);
-  height: 50px;
+  height: 5vh;
   margin: 5px;
   padding: 5px;
 }
 
 #time_progress {
-  border-radius: 4px;
-  background-color: #81ff3e;
+  border-radius: 6px;
+  background-color: #82ff3e;
   height: 100%;
   width: 100%;
   transition: width linear;
