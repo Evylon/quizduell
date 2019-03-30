@@ -137,7 +137,7 @@ export default {
   
   margin-left: 5px;
   margin-right: 5px;
-  height: 30vh;
+  height: 28vh;
   font-size: 18px;
 
   border: none;
@@ -196,7 +196,7 @@ export default {
 .button_answer {
   position: relative;
   width: 50%;
-  height: 25vh;
+  height: 22vh;
   margin: 5px;
   border: none;
   border-radius: 6px;

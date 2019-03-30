@@ -17,4 +17,7 @@ export default {
 </script>
 
 <style lang="scss">
+#logo-container {
+  padding: 0 20px;
+}
 </style>

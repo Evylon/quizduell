@@ -28,6 +28,7 @@ body {
   background-image: url('../assets/background.svg');
   background-size: cover;
   background-position: bottom center;
+  background-repeat: no-repeat;
 }
 
 #app {

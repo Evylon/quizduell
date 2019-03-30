@@ -1,5 +1,5 @@
 <template>
-  <div id="logo-container">
+  <div id="wait-container">
     <h1 class="full-page">{{ brand }}</h1>
     <h2>{{ waitingMessage }}</h2>
   </div>
@@ -17,4 +17,7 @@ export default {
 </script>
 
 <style lang="scss">
+#wait-container {
+  padding: 0 20px;
+}
 </style>
