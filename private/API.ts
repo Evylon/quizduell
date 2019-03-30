@@ -127,6 +127,10 @@ class API {
   }
 
   private async runQuestion(index: number) {
+    if (index >= this.questions.length) {
+      return
+    }
+
     this.timer.clear()
     this.resetSignal()
 
