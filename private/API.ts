@@ -4,6 +4,7 @@ import * as express from 'express'
 import * as _ from 'lodash'
 import Question from '../shared/Question'
 import Result from '../shared/Result'
+import { QUESTION_TIME, QUESTION_GRACE_TIME } from '../shared/constants'
 import * as logger from './logger'
 
 interface QuestionDefinition {
@@ -21,8 +22,6 @@ enum State {
   FinishQuestion,
 }
 
-const QUESTION_TIME = 10 * 1000
-const QUESTION_GRACE_TIME = 1 * 1000
 
 class API {
   public router: express.Router
