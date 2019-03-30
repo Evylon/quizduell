@@ -22,7 +22,6 @@ enum State {
   FinishQuestion,
 }
 
-
 class API {
   public router: express.Router
   private timer: Timeout
@@ -222,7 +221,7 @@ class API {
 
   private getRemainingTime(): number {
     const elapsedTime = ((new Date()).getTime() - this.currentQuestionStartTimestamp)
-    return (QUESTION_TIME - elapsedTime) / 1000
+    return QUESTION_TIME - elapsedTime
   }
 }
 
