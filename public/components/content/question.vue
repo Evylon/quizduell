@@ -290,6 +290,7 @@ body {
   --arrow-size: .6em;
   --height: 2.5em;
   --width: 3.5em;
+  --pad-left: .1em;
   font-size: 12px; 
   position:absolute;
   top: 0;
@@ -297,11 +298,12 @@ body {
 	background: #ffffff;
 	border-radius: 4px;
   padding: 0 .1em;
+  padding-left: var(--pad-left);
   height: var(--height);
   line-height: var(--height);
   width: var(--width);
   margin-top: calc(-1 * (var(--height) + var(--arrow-size)));
-  margin-left: calc(-1 * var(--width) / 2);
+  margin-left: calc(-1 * (var(--width) + var(--pad-left)) / 2);
   color: black;
   text-shadow: none;
   transition: left 1s;
@@ -329,6 +331,11 @@ body {
 .remoteCorrect .precentage_bubble {
   font-size: 16px; 
   z-index: 10;
+  --pad-left: 2.5em;
+  background-image: url('../../assets/avatar_family.png');
+  background-size: var(--height);
+  background-repeat: no-repeat;
+  background-position: .3em center;
 }
 
 .hasResults .precentage_bubble {
