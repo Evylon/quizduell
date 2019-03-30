@@ -17,24 +17,24 @@
         <button class="button_answer"
           v-on:click="selectAnswer(0)"
           v-bind:class="{ selected: selectedAnswer == 0, correct: result && result.correctAnswerIndex == 0, wrong: result && result.correctAnswerIndex != 0 && result.localAnswerIndex == 0}"
-          v-bind:style="{ '--progress': `${ result.remoteAnswerPercentages[0] ? result.remoteAnswerPercentages[0] : 0 }%` }"
+          v-bind:style="{ '--progress': `${ result && result.remoteAnswerPercentages[0] ? result.remoteAnswerPercentages[0] : 0 }%` }"
         >{{ question.answers[0] }}</button>
         <button class="button_answer"
           v-on:click="selectAnswer(1)"
           v-bind:class="{ selected: selectedAnswer == 1, correct: result && result.correctAnswerIndex == 1, wrong: result && result.correctAnswerIndex != 1 && result.localAnswerIndex == 1 }"
-          v-bind:style="{ '--progress': `${ result.remoteAnswerPercentages[1] ? result.remoteAnswerPercentages[1] : 0 }%` }"
+          v-bind:style="{ '--progress': `${ result && result.remoteAnswerPercentages[1] ? result.remoteAnswerPercentages[1] : 0 }%` }"
         >{{ question.answers[1] }}</button>
       </div>
       <div id="area_answers_2row" class="area_answers">
         <button class="button_answer"
           v-on:click="selectAnswer(2)"
           v-bind:class="{ selected: selectedAnswer == 2, correct: result && result.correctAnswerIndex == 2, wrong: result && result.correctAnswerIndex != 2 && result.localAnswerIndex == 2 }"
-          v-bind:style="{ '--progress': `${ result.remoteAnswerPercentages[2] ? result.remoteAnswerPercentages[2] : 0 }%` }"
+          v-bind:style="{ '--progress': `${ result && result.remoteAnswerPercentages[2] ? result.remoteAnswerPercentages[2] : 0 }%` }"
         >{{ question.answers[2] }}</button>
         <button class="button_answer"
           v-on:click="selectAnswer(3)"
           v-bind:class="{ selected: selectedAnswer == 3, correct: result && result.correctAnswerIndex == 3, wrong: result && result.correctAnswerIndex != 3 && result.localAnswerIndex == 3 }"
-          v-bind:style="{ '--progress': `${ result.remoteAnswerPercentages[3] ? result.remoteAnswerPercentages[3] : 0 }%` }"
+          v-bind:style="{ '--progress': `${ result && result.remoteAnswerPercentages[3] ? result.remoteAnswerPercentages[3] : 0 }%` }"
         >{{ question.answers[3] }}</button>
       </div>
     </div>
