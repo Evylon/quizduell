@@ -105,7 +105,7 @@ export default {
     async resultsClose(): Promise<void> {
       console.log('Results closed')
       this.setState(State.Wait)
-      await Timeout.set(60_000)
+      await this.nextQuestion()
       this.fetchQuestion()
     },
     async questionClose(): Promise<void> {
@@ -119,8 +119,15 @@ export default {
       console.log('Will display question next')
       this.setState(State.Wait)
       await Timeout.set(1_000)
+      await this.nextQuestion()
       this.fetchQuestion()
-    }
+    },
+    async nextQuestion() {
+      console.log('Next question')
+      await fetch(`${this.$store.state.baseUrl}/admin/next`, {
+        method: 'POST'
+      })
+    } 
   }
 }
 </script>

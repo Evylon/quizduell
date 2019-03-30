@@ -110,13 +110,16 @@ class API {
       res.send(this.results)
     })
 
-    this.router.post('/admin/start', (req, res) => {
-      this.runQuestion(0)
-      res.status(200).send()
-    })
-
     this.router.post('/admin/next', (req, res) => {
-      this.runQuestion(this.currentQuestionIndex + 1)
+      if (this.stateSignal.state === State.Waiting) {
+        if (this.currentQuestion) {
+          this.runQuestion(this.currentQuestionIndex + 1)
+        } else {
+          this.runQuestion(0)
+        }
+      } else {
+        logger.error('Ignoring next while in wrong state')
+      }
       res.status(200).send()
     })
 
