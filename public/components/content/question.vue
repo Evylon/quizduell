@@ -218,6 +218,7 @@ body {
   color: #FFFFFF;
   background-image: linear-gradient(to bottom, #7d7e7d, #181D26);
   overflow:hidden;
+  box-shadow: inset 0px -1.5px 0px rgba(0,0,0,.4), inset 0px 1.5px 0px rgba(255,255,255,.2);
 } 
 .button_answer::after {
   content:'';
@@ -239,6 +240,27 @@ body {
   animation: blink-animation 600ms 4 both;
 }
 
+.button_answer:hover {
+  border: 0px solid #4a4b4a;
+  background-image: linear-gradient(to bottom, #646464, #040507);
+}
+
+.button_answer.correct {
+  background-image: linear-gradient(0deg, rgba(129,255,63,1) 0%, rgba(150,255,95,1) 100%);
+}
+
+.button_answer.selected.correct {
+  animation: blink-animation-green 600ms 4;
+}
+
+.button_answer.wrong {
+  background-image: linear-gradient(4deg, rgba(255,51,24,1) 0%, rgba(255,88,65,1) 100%);
+}
+
+.button_answer.selected.wrong {
+  animation: blink-animation-red 600ms 4;
+}
+
 @keyframes blink-animation {
   0%, 50%, 100% {
       background-image: linear-gradient(to bottom, #1094ce, #0e7eb2);
@@ -248,18 +270,25 @@ body {
   }
 }
 
-.button_answer:hover {
-  border: 0px solid #4a4b4a;
-  background-image: linear-gradient(to bottom, #646464, #040507);
+@keyframes blink-animation-green {
+  0%, 50%, 100% {
+      background-image: linear-gradient(to bottom, #1094ce, #0e7eb2);
+  }
+  51%, 99% {
+    background-image: linear-gradient(0deg, rgba(129,255,63,1) 0%, rgba(150,255,95,1) 100%);
+  }
 }
 
-.button_answer.correct {
-  background-image: linear-gradient(to bottom, green, green);
+@keyframes blink-animation-red {
+  0%, 50%, 100% {
+      background-image: linear-gradient(to bottom, #1094ce, #0e7eb2);
+  }
+  51%, 99% {
+    background-image: linear-gradient(4deg, rgba(255,51,24,1) 0%, rgba(255,88,65,1) 100%);
+  }
 }
 
-.button_answer.wrong {
-  background-image: linear-gradient(to bottom, red, red);
-}
+
 
 
 
