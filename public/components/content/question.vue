@@ -17,27 +17,35 @@
     <div id="area_answers_complete">
       <div id="area_answers_1row" class="area_answers">
         <button class="button_answer"
-          v-on:click="selectAnswer(0)"
-          v-bind:class="{ selected: selectedAnswer == 0, correct: result && result.correctAnswerIndex == 0, wrong: result && result.correctAnswerIndex != 0 && result.localAnswerIndex == 0}"
-          v-bind:style="{ '--progress': `${ result && result.remoteAnswerPercentages[0] ? result.remoteAnswerPercentages[0] : 0 }%` }"
-        >{{ question.answers[0] }}</button>
+          v-on:click="selectAnswer(0)" v-bind:class="createClasses(0)"
+          v-bind:style="{ '--percentage': `${ result && result.remoteAnswerPercentages[0] ? result.remoteAnswerPercentages[0] : 0 }%` }"
+        >
+          {{ question.answers[0] }}
+          <div class="precentage_bubble" v-if="result && result.remoteAnswerPercentages">{{ result.remoteAnswerPercentages[0] + '%' }}</div>
+        </button>
         <button class="button_answer"
-          v-on:click="selectAnswer(1)"
-          v-bind:class="{ selected: selectedAnswer == 1, correct: result && result.correctAnswerIndex == 1, wrong: result && result.correctAnswerIndex != 1 && result.localAnswerIndex == 1 }"
-          v-bind:style="{ '--progress': `${ result && result.remoteAnswerPercentages[1] ? result.remoteAnswerPercentages[1] : 0 }%` }"
-        >{{ question.answers[1] }}</button>
+          v-on:click="selectAnswer(1)" v-bind:class="createClasses(1)"
+          v-bind:style="{ '--percentage': `${ result && result.remoteAnswerPercentages[1] ? result.remoteAnswerPercentages[1] : 0 }%` }"
+        >
+          {{ question.answers[1] }}
+          <div class="precentage_bubble" v-if="result && result.remoteAnswerPercentages">{{ result.remoteAnswerPercentages[1] + '%' }}</div>
+        </button>
       </div>
       <div id="area_answers_2row" class="area_answers">
         <button class="button_answer"
-          v-on:click="selectAnswer(2)"
-          v-bind:class="{ selected: selectedAnswer == 2, correct: result && result.correctAnswerIndex == 2, wrong: result && result.correctAnswerIndex != 2 && result.localAnswerIndex == 2 }"
-          v-bind:style="{ '--progress': `${ result && result.remoteAnswerPercentages[2] ? result.remoteAnswerPercentages[2] : 0 }%` }"
-        >{{ question.answers[2] }}</button>
+          v-on:click="selectAnswer(2)" v-bind:class="createClasses(2)"
+          v-bind:style="{ '--percentage': `${ result && result.remoteAnswerPercentages[2] ? result.remoteAnswerPercentages[2] : 0 }%` }"
+        >
+          {{ question.answers[2] }}
+          <div class="precentage_bubble" v-if="result && result.remoteAnswerPercentages">{{ result.remoteAnswerPercentages[2] + '%' }}</div>
+        </button>
         <button class="button_answer"
-          v-on:click="selectAnswer(3)"
-          v-bind:class="{ selected: selectedAnswer == 3, correct: result && result.correctAnswerIndex == 3, wrong: result && result.correctAnswerIndex != 3 && result.localAnswerIndex == 3 }"
-          v-bind:style="{ '--progress': `${ result && result.remoteAnswerPercentages[3] ? result.remoteAnswerPercentages[3] : 0 }%` }"
-        >{{ question.answers[3] }}</button>
+          v-on:click="selectAnswer(3)" v-bind:class="createClasses(3)"
+          v-bind:style="{ '--percentage': `${ result && result.remoteAnswerPercentages[3] ? result.remoteAnswerPercentages[3] : 0 }%` }"
+        >
+          {{ question.answers[3] }}
+          <div class="precentage_bubble" v-if="result && result.remoteAnswerPercentages">{{ result.remoteAnswerPercentages[3] + '%' }}</div>
+        </button>
       </div>
     </div>
 
@@ -107,6 +115,14 @@ export default {
     },
     next() {
       this.$emit('question-close')
+    },
+    createClasses(index) {
+      return { 
+        selected: this.selectedAnswer == index, 
+        correct: this.result && this.result.correctAnswerIndex == index, 
+        wrong: this.result && this.result.correctAnswerIndex != index && this.result.localAnswerIndex == index,
+        remoteCorrect: this.result && this.result.correctAnswerIndex == index,
+      }
     }
   }
 }
@@ -217,7 +233,6 @@ body {
   text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
   color: #FFFFFF;
   background-image: linear-gradient(to bottom, #7d7e7d, #181D26);
-  overflow:hidden;
   box-shadow: inset 0px -1.5px 0px rgba(0,0,0,.4), inset 0px 1.5px 0px rgba(255,255,255,.2);
 } 
 .button_answer::after {
@@ -226,8 +241,9 @@ body {
   top:0;
   left:0;
   bottom:0;
-  width: var(--progress);
+  width: var(--percentage);
   background:rgba(0, 0, 0, .3);
+  border-radius: 4px;
   transition: width 1s;
 }
 
@@ -289,6 +305,56 @@ body {
 }
 
 
+.precentage_bubble { 
+  --arrow-size: .6em;
+  --height: 2.5em;
+  --width: 3.5em;
+  font-size: 12px; 
+  position:absolute;
+  top: 0;
+  left: var(--percentage);
+	background: #ffffff;
+	border-radius: 4px;
+  padding: 0 .1em;
+  height: var(--height);
+  line-height: var(--height);
+  width: var(--width);
+  margin-top: calc(-1 * (var(--height) + var(--arrow-size)));
+  margin-left: calc(-1 * var(--width) / 2);
+  color: black;
+  text-shadow: none;
+  transition: left 1s;
+  transform-origin: 50% calc(100% + var(--arrow-size));
+  animation: scale 1s both;
+}
+
+.precentage_bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: var(--arrow-size) solid transparent;
+	border-top-color: #ffffff;
+	border-bottom: 0;
+	margin-left: calc(-1 * var(--arrow-size));
+	margin-bottom: calc(-1 * var(--arrow-size));
+}
+
+.remoteCorrect .precentage_bubble {
+  font-size: 16px; 
+}
+
+
+@keyframes scale {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
 
 
