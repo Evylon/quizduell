@@ -37,9 +37,9 @@ export default {
   },
   data() {
     return {
-      currentState: State.Results,
+      currentState: State.Wait,
       currentQuestion: undefined,
-      currentResults: resultsMock
+      currentResults: []
     }
   },
   components: {
