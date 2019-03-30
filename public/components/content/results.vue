@@ -1,5 +1,7 @@
 <template>
-  <div id="results_container">
+  <div id="results_container" 
+    v-on:click="next"
+  >
 
     <div id="container_grid">
       <div id="header" class="font_shadow">{{ brand }}</div>
@@ -18,17 +20,47 @@
         </div>
         <div class="round_result">
           <div class="round_result_avatar_1 round_result_avatar">
-            <div class="question_result question_right"></div>
-            <div class="question_result question_right"></div>
-            <div class="question_result question_right"></div>
+            <div class="question_result"
+              v-bind:class="{
+                correct: round.results[0].localCorrect === true,
+                wrong: round.results[0].localCorrect === false
+              }"
+            ></div>
+            <div class="question_result"
+              v-bind:class="{
+                correct: round.results[1].localCorrect === true,
+                wrong: round.results[1].localCorrect === false
+              }"
+            ></div>
+            <div class="question_result"
+              v-bind:class="{
+                correct: round.results[2].localCorrect === true,
+                wrong: round.results[2].localCorrect === false
+              }"
+            ></div>
           </div>
         
           <div class="topic">{{ gameTitle }}</div>
 
           <div class="round_result_avatar_2 round_result_avatar">
-            <div class="question_result question_right"></div>
-            <div class="question_result question_wrong"></div>
-            <div class="question_result question_right"></div>
+            <div class="question_result"
+              v-bind:class="{
+                correct: round.results[0].remoteCorrect === true,
+                wrong: round.results[0].remoteCorrect === false
+              }"
+            ></div>
+            <div class="question_result"
+              v-bind:class="{
+                correct: round.results[1].remoteCorrect === true,
+                wrong: round.results[1].remoteCorrect === false
+              }"
+            ></div>
+            <div class="question_result"
+              v-bind:class="{
+                correct: round.results[2].remoteCorrect === true,
+                wrong: round.results[2].remoteCorrect === false
+              }"
+            ></div>
           </div>
         </div>
       </div>
@@ -90,6 +122,11 @@ export default {
       return rounds
     }
   },
+  methods: {
+    next() {
+      this.$emit('results-close')
+    }
+  }
 }
 </script>
 
@@ -270,12 +307,12 @@ export default {
   margin-right:10px;
 }
 
-.question_right {
+.correct {
   background: linear-gradient(0deg, rgba(129,255,63,1) 0%, rgba(150,255,95,1) 100%);
   box-shadow: inset 0px -1.5px 0px rgba(0,0,0,.4), inset 0px 1.5px 0px rgba(255,255,255,.2);
 }
 
-.question_wrong {
+.wrong {
   background: linear-gradient(4deg, rgba(255,51,24,1) 0%, rgba(255,88,65,1) 100%);
   box-shadow: inset 0px -1.5px 0px rgba(0,0,0,.4), inset 0px 1.5px 0px rgba(255,255,255,.2);
 }

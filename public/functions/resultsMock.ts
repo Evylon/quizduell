@@ -64,7 +64,7 @@ const resultsMock: Result[] = [{
   localAnswerIndex: 0,
   remoteAnswerPercentages: [50, 20, 20, 20],
   localCorrect: true,
-  remoteCorrect: true,
+  remoteCorrect: false,
 },{
     question: {
     index: 0,
@@ -76,8 +76,8 @@ const resultsMock: Result[] = [{
   correctAnswerIndex: 0,
   localAnswerIndex: 0,
   remoteAnswerPercentages: [50, 20, 20, 20],
-  localCorrect: true,
-  remoteCorrect: true,
+  localCorrect: false,
+  remoteCorrect: false
 }]
 
 export { resultsMock }

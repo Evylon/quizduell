@@ -7,6 +7,7 @@
       v-bind:results="currentResults"
       v-bind:timed="false"
       v-on:answer-selected="answerSelected"
+      v-on:results-close="resultsClose"
     ></component>
   </div>
 </template>
@@ -20,8 +21,9 @@ import resultsVue from '../content/results.vue'
 import Question from '../../../shared/Question'
 import Result from '../../../shared/Result'
 import { resultsMock } from '../../functions/resultsMock'
+import { Stats } from 'fs';
 
-enum States {
+enum State {
     Wait = 'wait',
     Question = 'question',
     Results = 'results'
@@ -29,13 +31,13 @@ enum States {
 
 export default {
   created: function() {
-    // MOCK: this.fetchQuestion()
+    this.fetchQuestion()
   },
   data() {
     return {
-      currentState: States.Question, // MOCK: States.Wait,
-      currentQuestion: resultsMock[1].question,
-      currentResults: resultsMock // MOCK: []
+      currentState: State.Wait,
+      currentQuestion: undefined,
+      currentResults: undefined
     }
   },
   components: {
@@ -45,7 +47,7 @@ export default {
   },
   computed: {
     currentStateComponent: function(): string {
-      if (this.currentState === 'wait') return 'logoVue'
+      if (this.currentState === State.Wait) return 'logoVue'
       return `${this.currentState}Vue`
     },
     currentQuestionResult: function(): Result {
@@ -65,7 +67,7 @@ export default {
           const question: Question = await response.json()
           console.log(`Received question: ${JSON.stringify(question)}`)
           this.currentQuestion = question
-          this.setState('question')
+          this.setState(State.Question)
           break
         }
         console.log(`Could not get question, status was: ${response.status}`)
@@ -84,7 +86,12 @@ export default {
         })
       })
       console.log(`Saved answer, index: ${index}`)
-      this.setState('wait')
+      if (questionIndex % 3 === 0) {
+        this.setState(State.Wait)
+        this.fetchResults()
+        return
+      }
+      this.setState(State.Wait)
       await Timeout.set(60_000)
       this.fetchQuestion()
     },
@@ -95,12 +102,18 @@ export default {
           const results: Result[] = await response.json()
           console.log(`Received results: ${JSON.stringify(results)}`)
           this.currentResults = results
-          this.setState('result')
+          this.setState(State.Results)
           break
         }
         console.log(`Could not get results, status was: ${response.status}`)
         await Timeout.set(1_000)
       }
+    },
+    async resultsClose(): Promise<void> {
+      console.log('Results closed')
+      this.setState(State.Wait)
+      await Timeout.set(60_000)
+      this.fetchQuestion()
     }
   }
 }
