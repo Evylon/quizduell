@@ -29,7 +29,7 @@
       "Ohne Hose",
       "Ohne Bücher"
     ],
-    "correctAnswerIndex": 3,
+    "correctAnswerIndex": 2,
     "category": "Damals"
   },
   {
@@ -40,7 +40,7 @@
       "Speck",
       "Wiener Würstchen"
     ],
-    "correctAnswerIndex": 1,
+    "correctAnswerIndex": 3,
     "category": "Essen & Trinken"
   },
   {
@@ -51,7 +51,7 @@
       "Obstsalat schnibbeln",
       "Klöße rollen"
     ],
-    "correctAnswerIndex": 4,
+    "correctAnswerIndex": 3,
     "category": "Essen & Trinken"
   },
   {
@@ -62,7 +62,7 @@
       "7x8",
       "7x7"
     ],
-    "correctAnswerIndex": 3,
+    "correctAnswerIndex": 2,
     "category": "Mathematik"
   },
   {
@@ -73,7 +73,7 @@
       "Mittwoch",
       "Donnerstag"
     ],
-    "correctAnswerIndex": 1,
+    "correctAnswerIndex": 0,
     "category": "Wochentage"
   },
   {
@@ -84,7 +84,7 @@
       "6",
       "8"
     ],
-    "correctAnswerIndex": 3,
+    "correctAnswerIndex": 2,
     "category": "Freizeit"
   },
   {
@@ -95,7 +95,7 @@
       "Kirschblüten",
       "Lupinenzweige"
     ],
-    "correctAnswerIndex": 1,
+    "correctAnswerIndex": 0,
     "category": "50€-Frage"
   }
 ]
