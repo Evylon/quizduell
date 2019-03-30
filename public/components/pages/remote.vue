@@ -1,12 +1,14 @@
 <template>
   <div id="remote-container">
-    <component
-      v-bind:is="currentStateComponent"
-      v-bind:question="currentQuestion"
-      v-bind:timed="true"
-      v-on:answer-selected="answerSelected"
-      v-on:no-answer-selected="noAnswerSelected"
-    ></component>
+    <transition name="fade" mode="out-in">
+      <component
+        v-bind:is="currentStateComponent"
+        v-bind:question="currentQuestion"
+        v-bind:timed="true"
+        v-on:answer-selected="answerSelected"
+        v-on:no-answer-selected="noAnswerSelected"
+      ></component>
+    </transition>
   </div>
 </template>
 
@@ -83,4 +85,11 @@ export default {
 </script>
 
 <style lang="scss">
+.fade-enter-active, .fade-leave-active {
+  transition: all 0.5s ease-in-out;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
 </style>

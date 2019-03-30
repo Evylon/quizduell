@@ -1,15 +1,17 @@
 <template>
   <div id="local-container">
-    <component
-      v-bind:is="currentStateComponent"
-      v-bind:question="currentQuestion"
-      v-bind:result="currentQuestionResult"
-      v-bind:results="currentResults"
-      v-bind:timed="false"
-      v-on:answer-selected="answerSelected"
-      v-on:results-close="resultsClose"
-      v-on:question-close="questionClose"
-    ></component>
+    <transition name="fade" mode="out-in">
+      <component
+        v-bind:is="currentStateComponent"
+        v-bind:question="currentQuestion"
+        v-bind:result="currentQuestionResult"
+        v-bind:results="currentResults"
+        v-bind:timed="false"
+        v-on:answer-selected="answerSelected"
+        v-on:results-close="resultsClose"
+        v-on:question-close="questionClose"
+      ></component>
+    </transition>
   </div>
 </template>
 
@@ -35,9 +37,9 @@ export default {
   },
   data() {
     return {
-      currentState: State.Wait,
+      currentState: State.Results,
       currentQuestion: undefined,
-      currentResults: undefined
+      currentResults: resultsMock
     }
   },
   components: {
@@ -124,4 +126,17 @@ export default {
 </script>
 
 <style lang="scss">
+.fade-enter-active, .fade-leave-active {
+  transition: all 0.8s ease-in-out;
+}
+
+.fade-enter {
+  transform: translateY(100px);
+  opacity: 0;
+}
+
+.fade-leave-to {
+  transform: translateY(-250px);
+  opacity: 0;
+}
 </style>
