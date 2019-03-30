@@ -16,26 +16,32 @@
 import * as Timeout from 'await-timeout'
 
 import { QUESTION_TIME, QUESTION_GRACE_TIME } from '../../../shared/constants'
-import waitVue from '../content/wait.vue'
+import waitRemoteVue from '../content/waitRemote.vue'
 import questionVue from '../content/question.vue'
 import Question from '../../../shared/Question'
+
+enum State {
+    Wait = 'wait',
+    Question = 'question'
+}
 
 export default {
   created: function() {
     this.fetchQuestion()
   },
   components: {
-    waitVue,
+    waitRemoteVue,
     questionVue
   },
   data() {
     return {
-      currentState: 'wait',
+      currentState: State.Wait,
       currentQuestion: undefined
     }
   },
   computed: {
     currentStateComponent: function(): string {
+      if (this.currentState === State.Wait) return 'waitRemoteVue'
       return `${this.currentState}Vue`
     }
   },
@@ -50,7 +56,7 @@ export default {
           const question = await response.json()
           console.log(`Received question: ${JSON.stringify(question)}`)
           this.currentQuestion = question
-          this.setState('question')
+          this.setState(State.Question)
           break
         }
         console.log(`Could not get question, status was: ${response.status}`)
@@ -71,12 +77,12 @@ export default {
       })
       console.log(`Saved answer, index: ${index}, userId: ${userId}`)
       await Timeout.set(2_000) // Keep the selected answer visible for a short time
-      this.setState('wait')
+      this.setState(State.Wait)
       await Timeout.set(QUESTION_TIME + QUESTION_GRACE_TIME)
       this.fetchQuestion()
     },
     async noAnswerSelected(): Promise<void> {
-      this.setState('wait')
+      this.setState(State.Wait)
       await Timeout.set(QUESTION_TIME + QUESTION_GRACE_TIME)
       this.fetchQuestion()
     }

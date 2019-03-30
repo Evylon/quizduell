@@ -8,8 +8,9 @@
         v-bind:results="currentResults"
         v-bind:timed="false"
         v-on:answer-selected="answerSelected"
-        v-on:results-close="resultsClose"
+        v-on:start-close="startClose"
         v-on:question-close="questionClose"
+        v-on:results-close="resultsClose"
       ></component>
     </transition>
   </div>
@@ -18,7 +19,8 @@
 <script lang="ts">
 import * as Timeout from 'await-timeout'
 
-import logoVue from '../content/logo.vue'
+import startVue from '../content/start.vue'
+import waitLocalVue from '../content/waitLocal.vue'
 import questionVue from '../content/question.vue'
 import resultsVue from '../content/results.vue'
 import Question from '../../../shared/Question'
@@ -26,6 +28,7 @@ import Result from '../../../shared/Result'
 import { resultsMock } from '../../functions/resultsMock'
 
 enum State {
+    Start = 'start',
     Wait = 'wait',
     Question = 'question',
     Results = 'results'
@@ -37,19 +40,20 @@ export default {
   },
   data() {
     return {
-      currentState: State.Wait,
+      currentState: State.Start,
       currentQuestion: undefined,
       currentResults: []
     }
   },
   components: {
-    logoVue,
+    startVue,
+    waitLocalVue,
     questionVue,
     resultsVue
   },
   computed: {
     currentStateComponent: function(): string {
-      if (this.currentState === State.Wait) return 'logoVue'
+      if (this.currentState === State.Wait) return 'waitLocalVue'
       return `${this.currentState}Vue`
     },
     currentQuestionResult: function(): Result {
@@ -57,7 +61,6 @@ export default {
       const currentResults = this.currentResults
       if (!currentQuestion || !currentResults) return undefined
       const currentResult = currentResults[currentQuestion.index]
-      console.log(currentResult)
       return currentResult
     }
   },
@@ -101,6 +104,12 @@ export default {
       const results: Result[] = await response.json()
       console.log(`Received results: ${JSON.stringify(results)}`)
       this.currentResults = results
+    },
+    async startClose(): Promise<void> {
+      console.log('Start closed')
+      this.setState(State.Wait)
+      await this.nextQuestion()
+      this.fetchQuestion()
     },
     async resultsClose(): Promise<void> {
       console.log('Results closed')

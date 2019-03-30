@@ -10,7 +10,7 @@ export default {
   data() {
     return {
       brand: 'Quizduell',
-      gameTitle: 'Oma & Opa vs. Family'
+      gameTitle: 'Jetzt am Handy antworten'
     }
   }
 }
