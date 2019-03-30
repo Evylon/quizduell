@@ -128,7 +128,7 @@ export default {
 #quiz_container {
   max-width: 700px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 15px 10px;
 }
 
 #area_question {
@@ -137,7 +137,7 @@ export default {
   
   margin-left: 5px;
   margin-right: 5px;
-  height: 28vh;
+  height: 26vh;
   font-size: 18px;
 
   border: none;
@@ -196,7 +196,7 @@ export default {
 .button_answer {
   position: relative;
   width: 50%;
-  height: 22vh;
+  height: 20vh;
   margin: 5px;
   border: none;
   border-radius: 6px;
