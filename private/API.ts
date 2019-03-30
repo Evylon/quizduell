@@ -65,10 +65,13 @@ class API {
     this.router.put('/remote/question/:index/answer/:userid', (req, res) => {
       const index = parseInt(req.params.index, 10)
       if ((this.stateSignal.state === State.RemoteQuestion || this.stateSignal.state === State.RemoteQuestionGracePeriod) && index === this.currentQuestionIndex) {
-        const answerCheckResult = this.checkAnswerBody(req.body, this.currentQuestionRemoteAnswers[req.params.userid])
+        const answerCheckResult = this.checkAnswerBody(req.body)
         if (answerCheckResult) {
           res.status(answerCheckResult.status).send(answerCheckResult.msg)
           return
+        }
+        if (this.currentQuestionRemoteAnswers[req.params.userid] !== undefined) {
+          res.status(409).send()
         }
         this.currentQuestionRemoteAnswers[req.params.userid] = req.body.answerIndex
         logger.info({ remoteAnswers: this.currentQuestionRemoteAnswers }, 'Received remote answer')
@@ -89,7 +92,7 @@ class API {
     this.router.put('/local/question/:index/answer', (req, res) => {
       const index = parseInt(req.params.index, 10)
       if (this.stateSignal.state === State.LocalQuestion && index === this.currentQuestionIndex) {
-        const answerCheckResult = this.checkAnswerBody(req.body, this.currentQuestionLocalAnswer)
+        const answerCheckResult = this.checkAnswerBody(req.body)
         if (answerCheckResult) {
           res.status(answerCheckResult.status).send(answerCheckResult.msg)
           return
@@ -159,12 +162,7 @@ class API {
     }
   }
 
-  private checkAnswerBody(body: any, previousAnswer: number): { status: number, msg?: string } {
-    if (previousAnswer !== undefined) {
-      return {
-        status: 409
-      }
-    }
+  private checkAnswerBody(body: any): { status: number, msg?: string } {
     if (typeof body !== 'object' || body === null) {
       return {
         status: 400,
