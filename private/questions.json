@@ -1,13 +1,13 @@
 [
-    {
-        "text": "Where do vanished objects go?",
-        "answers": [
-            "Into non-being, that is to say everything",
-            "Your mom",
-            "42",
-            "..."
-        ],
-        "correctAnswerIndex": 0,
-        "category": "1 & 2"
-    }
+  {
+    "text": "Where do vanished objects go?",
+    "answers": [
+        "Into non-being, that is to say everything",
+        "Your mom",
+        "42",
+        "..."
+    ],
+    "correctAnswerIndex": 0,
+    "category": "1 & 2"
+  }
 ]

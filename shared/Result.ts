@@ -4,11 +4,9 @@ interface Result {
   question: Question,
   correctAnswerIndex: number,
   localAnswerIndex: number,
-  remoteAnswerPercentages: {
-    [index: number]: number
-  },
+  remoteAnswerPercentages: number[],
   localCorrect: boolean,
   remoteCorrect: boolean,
 }
 
-type Results = Result[]
+export default Result
