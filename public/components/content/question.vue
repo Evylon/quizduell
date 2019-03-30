@@ -75,7 +75,7 @@ export default {
     console.log(this.question.remainingTime)
     console.log(this.timeRemainingMilliseconds)
     console.log(this.timeRemainingPercent)
-    await Timeout.set(1)
+    await Timeout.set(100)
     this.timeRemainingPercent = 2
     await Timeout.set(this.timeRemainingMilliseconds)
     this.selectNoAnswer()
