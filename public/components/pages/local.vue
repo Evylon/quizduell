@@ -3,6 +3,7 @@
     <component
       v-bind:is="currentStateComponent"
       v-bind:question="currentQuestion"
+      v-bind:result="currentQuestionResult"
       v-bind:results="currentResults"
       v-bind:timed="false"
       v-on:answer-selected="answerSelected"
@@ -32,9 +33,9 @@ export default {
   },
   data() {
     return {
-      currentState: States.Results, // MOCK: States.Wait,
-      currentQuestion: undefined,
-      currentResults: resultsMock // MOCK: undefined
+      currentState: States.Question, // MOCK: States.Wait,
+      currentQuestion: resultsMock[1].question,
+      currentResults: resultsMock // MOCK: []
     }
   },
   components: {
@@ -46,6 +47,11 @@ export default {
     currentStateComponent: function(): string {
       if (this.currentState === 'wait') return 'logoVue'
       return `${this.currentState}Vue`
+    },
+    currentQuestionResult: function(): Result {
+      const x =  this.currentResults[this.currentQuestion.index]
+      console.log(x)
+      return x
     }
   },
   methods: {

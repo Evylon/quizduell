@@ -9,9 +9,9 @@ const resultsMock: Result[] = [{
     remainingTime: null
   },
   correctAnswerIndex: 0,
-  localAnswerIndex: 0,
-  remoteAnswerPercentages: [0.5, 0.2, 0.2, 0.2],
-  localCorrect: true,
+  localAnswerIndex: 2,
+  remoteAnswerPercentages: [50, 20, 20, 20],
+  localCorrect: false,
   remoteCorrect: true,
 },{
     question: {
@@ -23,7 +23,7 @@ const resultsMock: Result[] = [{
   },
   correctAnswerIndex: 0,
   localAnswerIndex: 0,
-  remoteAnswerPercentages: [0.5, 0.2, 0.2, 0.2],
+  remoteAnswerPercentages: [50, 20, 20, 20],
   localCorrect: false,
   remoteCorrect: true,
 },{
@@ -36,7 +36,7 @@ const resultsMock: Result[] = [{
   },
   correctAnswerIndex: 0,
   localAnswerIndex: 0,
-  remoteAnswerPercentages: [0.5, 0.2, 0.2, 0.2],
+  remoteAnswerPercentages: [50, 20, 20, 20],
   localCorrect: true,
   remoteCorrect: false,
 },{
@@ -49,7 +49,7 @@ const resultsMock: Result[] = [{
   },
   correctAnswerIndex: 0,
   localAnswerIndex: 0,
-  remoteAnswerPercentages: [0.5, 0.2, 0.2, 0.2],
+  remoteAnswerPercentages: [50, 20, 20, 20],
   localCorrect: true,
   remoteCorrect: true,
 },{
@@ -62,7 +62,7 @@ const resultsMock: Result[] = [{
   },
   correctAnswerIndex: 0,
   localAnswerIndex: 0,
-  remoteAnswerPercentages: [0.5, 0.2, 0.2, 0.2],
+  remoteAnswerPercentages: [50, 20, 20, 20],
   localCorrect: true,
   remoteCorrect: true,
 },{
@@ -75,7 +75,7 @@ const resultsMock: Result[] = [{
   },
   correctAnswerIndex: 0,
   localAnswerIndex: 0,
-  remoteAnswerPercentages: [0.5, 0.2, 0.2, 0.2],
+  remoteAnswerPercentages: [50, 20, 20, 20],
   localCorrect: true,
   remoteCorrect: true,
 }]

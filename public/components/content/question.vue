@@ -16,25 +16,25 @@
       <div id="area_answers_1row" class="area_answers">
         <button class="button_answer"
           v-on:click="selectAnswer(0)"
-          v-bind:class="{ selected: selectedAnswer == 0 }"
-          v-bind:style="{ '--progress': `${ resultPercentages[0] ? resultPercentages[0] : 0 }%` }"
+          v-bind:class="{ selected: selectedAnswer == 0, correct: result.correctAnswerIndex == 0, wrong: result.correctAnswerIndex != 0 && result.localAnswerIndex == 0}"
+          v-bind:style="{ '--progress': `${ result.remoteAnswerPercentages[0] ? result.remoteAnswerPercentages[0] : 0 }%` }"
         >{{ question.answers[0] }}</button>
         <button class="button_answer"
           v-on:click="selectAnswer(1)"
-          v-bind:class="{ selected: selectedAnswer == 1 }"
-          v-bind:style="{ '--progress': `${ resultPercentages[1] ? resultPercentages[1] : 0 }%` }"
+          v-bind:class="{ selected: selectedAnswer == 1, correct: result.correctAnswerIndex == 1, wrong: result.correctAnswerIndex != 1 && result.localAnswerIndex == 1 }"
+          v-bind:style="{ '--progress': `${ result.remoteAnswerPercentages[1] ? result.remoteAnswerPercentages[1] : 0 }%` }"
         >{{ question.answers[1] }}</button>
       </div>
       <div id="area_answers_2row" class="area_answers">
         <button class="button_answer"
           v-on:click="selectAnswer(2)"
-          v-bind:class="{ selected: selectedAnswer == 2 }"
-          v-bind:style="{ '--progress': `${ resultPercentages[2] ? resultPercentages[2] : 0 }%` }"
+          v-bind:class="{ selected: selectedAnswer == 2, correct: result.correctAnswerIndex == 2, wrong: result.correctAnswerIndex != 2 && result.localAnswerIndex == 2 }"
+          v-bind:style="{ '--progress': `${ result.remoteAnswerPercentages[2] ? result.remoteAnswerPercentages[2] : 0 }%` }"
         >{{ question.answers[2] }}</button>
         <button class="button_answer"
           v-on:click="selectAnswer(3)"
-          v-bind:class="{ selected: selectedAnswer == 3 }"
-          v-bind:style="{ '--progress': `${ resultPercentages[3] ? resultPercentages[3] : 0 }%` }"
+          v-bind:class="{ selected: selectedAnswer == 3, correct: result.correctAnswerIndex == 3, wrong: result.correctAnswerIndex != 3 && result.localAnswerIndex == 3 }"
+          v-bind:style="{ '--progress': `${ result.remoteAnswerPercentages[3] ? result.remoteAnswerPercentages[3] : 0 }%` }"
         >{{ question.answers[3] }}</button>
       </div>
     </div>
@@ -57,6 +57,7 @@ import * as Timeout from 'await-timeout'
 
 import { QUESTION_TIME } from '../../../shared/constants'
 import Question from '../../../shared/Question'
+import Result from '../../../shared/Result'
 
 export default {
   props: {
@@ -65,9 +66,9 @@ export default {
       note: 'Question'
     },
     timed: Boolean,
-    resultPercentages: {
-      type: Array,
-      default: () => []
+    result: {
+      type: Object,
+      note: 'Result'
     }
   },
   data() {
@@ -233,11 +234,6 @@ body {
   animation: blink-animation 600ms 4 both;
 }
 
-.button_answer:hover {
-  border: 0px solid #4a4b4a;
-  background-image: linear-gradient(to bottom, #646464, #040507);
-}
-
 @keyframes blink-animation {
   0%, 50%, 100% {
       background-image: linear-gradient(to bottom, #1094ce, #0e7eb2);
@@ -246,6 +242,21 @@ body {
     background-image: linear-gradient(to bottom, #7d7e7d, #181D26);
   }
 }
+
+.button_answer:hover {
+  border: 0px solid #4a4b4a;
+  background-image: linear-gradient(to bottom, #646464, #040507);
+}
+
+.button_answer.correct {
+  background-image: linear-gradient(to bottom, green, green);
+}
+
+.button_answer.wrong {
+  background-image: linear-gradient(to bottom, red, red);
+}
+
+
 
 #time_box {
   border-radius: 4px;
