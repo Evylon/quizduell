@@ -3,6 +3,7 @@
     <component
       v-bind:is="currentStateComponent"
       v-bind:question="currentQuestion"
+      v-bind:results="currentResults"
       v-on:answer-selected="answerSelected"
     ></component>
   </div>
@@ -13,22 +14,32 @@ import * as Timeout from 'await-timeout'
 
 import logoVue from '../content/logo.vue'
 import questionVue from '../content/question.vue'
+import resultsVue from '../content/results.vue'
 import Question from '../../../shared/Question'
+import Result from '../../../shared/Result'
+import { resultsMock } from '../../functions/resultsMock'
+
+enum States {
+    Wait = 'wait',
+    Question = 'question',
+    Results = 'results'
+}
 
 export default {
   created: function() {
-    this.fetchQuestion()
+    // MOCK: this.fetchQuestion()
   },
   data() {
     return {
-      currentState: 'wait',
+      currentState: States.Results, // MOCK: States.Wait,
       currentQuestion: undefined,
-      currentResults: undefined
+      currentResults: resultsMock // MOCK: undefined
     }
   },
   components: {
     logoVue,
-    questionVue
+    questionVue,
+    resultsVue
   },
   computed: {
     currentStateComponent: function(): string {
@@ -41,10 +52,10 @@ export default {
       this.currentState = state
     },
     async fetchQuestion(): Promise<void> {
-      while(true) {
+      while (true) {
         const response = await fetch(`${this.$store.state.baseUrl}/local/question`)
         if (response.status === 200) {
-          const question = await response.json()
+          const question: Question = await response.json()
           console.log(`Received question: ${JSON.stringify(question)}`)
           this.currentQuestion = question
           this.setState('question')
@@ -69,6 +80,20 @@ export default {
       this.setState('wait')
       await Timeout.set(60_000)
       this.fetchQuestion()
+    },
+    async fetchResults(): Promise<void> {
+      while (true) {
+        const response = await fetch(`${this.$store.state.baseUrl}/local/results`)
+        if (response.status === 200) {
+          const results: Result[] = await response.json()
+          console.log(`Received results: ${JSON.stringify(results)}`)
+          this.currentResults = results
+          this.setState('result')
+          break
+        }
+        console.log(`Could not get results, status was: ${response.status}`)
+        await Timeout.set(1_000)
+      }
     }
   }
 }

@@ -3,7 +3,7 @@ interface Question {
   text: string,
   answers: string[],
   category: string,
-  remainingTime: number // milliseconds
+  remainingTime?: number // milliseconds
 }
 
 export default Question

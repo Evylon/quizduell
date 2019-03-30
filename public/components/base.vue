@@ -22,7 +22,9 @@ export default {
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   background-color: #0f75a4;
+  color: #fff;
   margin: 0px;
+  font-weight: 200;
 }
 
 #app {
@@ -34,6 +36,7 @@ h1 {
   color: #fff;
   text-align: center;
   font-size: 60px;
+  font-weight: 700;
 }
 
 h1.full-page {
@@ -44,6 +47,7 @@ h2 {
   color: #fff;
   text-align: center;
   font-size: 35px;
+  font-weight: 700;
 }
 
 </style>
