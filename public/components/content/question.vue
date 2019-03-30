@@ -21,14 +21,14 @@
           v-bind:style="{ '--percentage': `${ result ? result.remoteAnswerPercentages[0] : 0 }%` }"
         >
           {{ question.answers[0] }}
-          <div class="precentage_bubble">{{ (result ? result.remoteAnswerPercentages[0] : 0) + '%' }}</div>
+          <div class="precentage_bubble">{{ (result ? Math.round(result.remoteAnswerPercentages[0]) : 0) + '%' }}</div>
         </button>
         <button class="button_answer"
           v-on:click="selectAnswer(1)" v-bind:class="createClasses(1)"
           v-bind:style="{ '--percentage': `${ result ? result.remoteAnswerPercentages[1] : 0 }%` }"
         >
           {{ question.answers[1] }}
-          <div class="precentage_bubble">{{ (result ? result.remoteAnswerPercentages[1] : 0) + '%' }}</div>
+          <div class="precentage_bubble">{{ (result ? Math.round(result.remoteAnswerPercentages[1]) : 0) + '%' }}</div>
         </button>
       </div>
       <div id="area_answers_2row" class="area_answers">
@@ -37,14 +37,14 @@
           v-bind:style="{ '--percentage': `${ result ? result.remoteAnswerPercentages[2] : 0 }%` }"
         >
           {{ question.answers[2] }}
-          <div class="precentage_bubble">{{ (result ? result.remoteAnswerPercentages[2] : 0) + '%' }}</div>
+          <div class="precentage_bubble">{{ (result ? Math.round(result.remoteAnswerPercentages[2]) : 0) + '%' }}</div>
         </button>
         <button class="button_answer"
           v-on:click="selectAnswer(3)" v-bind:class="createClasses(3)"
           v-bind:style="{ '--percentage': `${ result ? result.remoteAnswerPercentages[3] : 0 }%` }"
         >
           {{ question.answers[3] }}
-          <div class="precentage_bubble">{{ (result ? result.remoteAnswerPercentages[3] : 0) + '%' }}</div>
+          <div class="precentage_bubble">{{ (result ? Math.round(result.remoteAnswerPercentages[3]) : 0) + '%' }}</div>
         </button>
       </div>
     </div>
