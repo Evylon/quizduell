@@ -37,6 +37,7 @@ h1 {
   text-align: center;
   font-size: 60px;
   font-weight: 700;
+  text-shadow: 0.04em 0.04em #0f678f; 
 }
 
 h1.full-page {
@@ -48,6 +49,7 @@ h2 {
   text-align: center;
   font-size: 35px;
   font-weight: 700;
+  text-shadow: 0.04em 0.04em #0f678f; 
 }
 
 </style>

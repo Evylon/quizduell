@@ -28,6 +28,18 @@
             <stop stop-color="#1D7EAB" offset="0%"></stop>
             <stop stop-color="#3798C5" offset="100%"></stop>
         </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-7">
+            <stop stop-color="#1D7EAB" offset="0%"></stop>
+            <stop stop-color="#3798C5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-8">
+            <stop stop-color="#1D7EAB" offset="0%"></stop>
+            <stop stop-color="#3798C5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-9">
+            <stop stop-color="#1D7EAB" offset="0%"></stop>
+            <stop stop-color="#3798C5" offset="100%"></stop>
+        </linearGradient>
     </defs>
     <g id="background" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="0" width="2436" height="2173"></rect>
@@ -37,12 +49,18 @@
             <polygon id="Path-3" fill="url(#linearGradient-4)" points="127.956576 2173 717.69448 0 927.810406 0 187.925301 2173"></polygon>
             <polygon id="Path-4" fill="url(#linearGradient-5)" points="253.735569 2173 309.201212 2173 1125.36523 530.362009 1125.36523 49.358825"></polygon>
             <polygon id="Path-5" fill="url(#linearGradient-6)" points="367.286875 2173 422.987267 2173 1125.36523 1198.41348 1125.36523 870.087973"></polygon>
+            <polygon id="Path-5" fill="url(#linearGradient-7)" points="477.286875 2173 532.987267 2173 1435.36523 1378.41348 1435.36523 1050.08797"></polygon>
+            <polygon id="Path-5" fill="url(#linearGradient-8)" points="616.286875 2173 671.987267 2173 1794.36523 1638.41348 1794.36523 1310.08797"></polygon>
+            <polygon id="Path-5-Copy" fill="url(#linearGradient-9)" points="770.365227 2173 826.065619 2173 1958.44358 2128.41348 1958.44358 1800.08797"></polygon>
         </g>
-        <g id="left" transform="translate(563.000000, 1086.500000) scale(-1, 1) translate(-563.000000, -1086.500000) ">
+        <g id="right" transform="translate(144.500000, 1086.500000) scale(-1, 1) translate(-144.500000, -1086.500000) translate(-835.000000, 0.000000)">
             <polygon id="Path-2" fill="url(#linearGradient-3)" points="1.13686838e-13 2173 247.51467 0 458.444102 0 60.6539634 2173"></polygon>
             <polygon id="Path-3" fill="url(#linearGradient-4)" points="127.956576 2173 717.69448 0 927.810406 0 187.925301 2173"></polygon>
             <polygon id="Path-4" fill="url(#linearGradient-5)" points="253.735569 2173 309.201212 2173 1125.36523 530.362009 1125.36523 49.358825"></polygon>
             <polygon id="Path-5" fill="url(#linearGradient-6)" points="367.286875 2173 422.987267 2173 1125.36523 1198.41348 1125.36523 870.087973"></polygon>
+            <polygon id="Path-5" fill="url(#linearGradient-7)" points="477.286875 2173 532.987267 2173 1435.36523 1378.41348 1435.36523 1050.08797"></polygon>
+            <polygon id="Path-5" fill="url(#linearGradient-8)" points="616.286875 2173 671.987267 2173 1794.36523 1638.41348 1794.36523 1310.08797"></polygon>
+            <polygon id="Path-5-Copy" fill="url(#linearGradient-9)" points="770.365227 2173 826.065619 2173 1958.44358 2128.41348 1958.44358 1800.08797"></polygon>
         </g>
     </g>
 </svg>
