@@ -116,7 +116,7 @@ export default {
         selected: this.selectedAnswer == index, 
         correct: this.result && this.result.correctAnswerIndex == index, 
         wrong: this.result && this.result.correctAnswerIndex != index && this.result.localAnswerIndex == index,
-        remoteCorrect: this.result && this.result.correctAnswerIndex == index,
+        remoteCorrect: this.result && this.result.remoteAnswerIndex == index,
       }
     }
   }
@@ -212,14 +212,12 @@ body {
   display: inline-block;
   color: #FFFFFF;
   text-shadow: 0px 1px 0 rgba(0,0,0,0.8);
-  overflow:hidden;
   background-image: linear-gradient(to bottom, #434343, #2b2b2b);
   box-shadow: inset 0px -1.5px 0px rgba(0,0,0,.4), inset 0px 1.5px 0px rgba(255,255,255,.2);
 }
 
 .button_answer:hover {
   border: none;
-  background-image: linear-gradient(to bottom, #434343, #2b2b2b);
   cursor: pointer;
 }
 
@@ -229,7 +227,7 @@ body {
   top: 0;
   left: 0;
   bottom: 0;
-  width: var(--progress);
+  width: var(--percentage);
   background: rgba(0, 0, 0, .2);
   border-radius: 4px;
   transition: width 1s;

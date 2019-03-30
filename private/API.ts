@@ -206,7 +206,7 @@ class API {
     }
 
     return {
-      question, correctAnswerIndex, remoteAnswerPercentages,
+      question, correctAnswerIndex, remoteAnswerPercentages, remoteAnswerIndex,
       localAnswerIndex: this.currentQuestionLocalAnswer,
       localCorrect: this.currentQuestionLocalAnswer === correctAnswerIndex,
       remoteCorrect: remoteAnswerIndex === correctAnswerIndex
