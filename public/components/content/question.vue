@@ -17,20 +17,24 @@
         <button class="button_answer"
           v-on:click="selectAnswer(0)"
           v-bind:class="{ selected: selectedAnswer == 0 }"
+          v-bind:style="{ '--progress': `${ resultPercentages[0] ? resultPercentages[0] : 0 }%` }"
         >{{ question.answers[0] }}</button>
         <button class="button_answer"
           v-on:click="selectAnswer(1)"
           v-bind:class="{ selected: selectedAnswer == 1 }"
+          v-bind:style="{ '--progress': `${ resultPercentages[1] ? resultPercentages[1] : 0 }%` }"
         >{{ question.answers[1] }}</button>
       </div>
       <div id="area_answers_2row" class="area_answers">
         <button class="button_answer"
           v-on:click="selectAnswer(2)"
           v-bind:class="{ selected: selectedAnswer == 2 }"
+          v-bind:style="{ '--progress': `${ resultPercentages[2] ? resultPercentages[2] : 0 }%` }"
         >{{ question.answers[2] }}</button>
         <button class="button_answer"
           v-on:click="selectAnswer(3)"
           v-bind:class="{ selected: selectedAnswer == 3 }"
+          v-bind:style="{ '--progress': `${ resultPercentages[3] ? resultPercentages[3] : 0 }%` }"
         >{{ question.answers[3] }}</button>
       </div>
     </div>
@@ -61,13 +65,17 @@ export default {
       note: 'Question'
     },
     timed: Boolean,
+    resultPercentages: {
+      type: Array,
+      default: () => []
+    }
   },
   data() {
     return {
       selectedAnswer: undefined,
       timeRemainingMilliseconds: this.question.remainingTime,
       timeRemainingPercent: this.question.remainingTime / QUESTION_TIME * 100,
-      started: false
+      started: false,
     }
   },
   async created() {
@@ -190,6 +198,7 @@ body {
 }
 
 .button_answer {
+  position: relative;
   width: 50%;
   height: 150px;
   margin: 5px 5px 5px 5px;
@@ -202,7 +211,18 @@ body {
   text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
   color: #FFFFFF;
   background-image: linear-gradient(to bottom, #7d7e7d, #181D26);
-}   
+  overflow:hidden;
+} 
+.button_answer::after {
+  content:'';
+  position: absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  width: var(--progress);
+  background:rgba(0, 0, 0, .3);
+  transition: width 1s;
+}
 
 .button_answer:focus, .button_answer:hover {
   outline: none;
