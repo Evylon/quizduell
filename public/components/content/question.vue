@@ -52,7 +52,7 @@
 
     <div id="area_time" v-if="timed">
       <div id="time_box">
-        <div id="time_progress"
+        <div id="time_progress" ref="timeProgress"
           v-bind:class="{ started }"
           v-bind:style="{ transitionDuration: `${timeRemainingMilliseconds}ms`, width: `${timeRemainingPercent}%` }"
         ></div>
@@ -104,6 +104,9 @@ export default {
     selectAnswer(index: number) {
       this.selectedAnswer = index
       this.$emit('answer-selected', index)
+      if (this.timed) {
+        this.$refs.timeProgress.style.width = this.$refs.timeProgress.clientWidth + 'px'
+      }
     },
     selectNoAnswer() {
       this.$emit('no-answer-selected')
