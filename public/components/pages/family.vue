@@ -3,6 +3,7 @@
     <component
       v-bind:is="currentStateComponent"
       v-bind:question="currentQuestion"
+      v-bind:timed="true"
       v-on:answer-selected="answerSelected"
       v-on:no-answer-selected="noAnswerSelected"
     ></component>
