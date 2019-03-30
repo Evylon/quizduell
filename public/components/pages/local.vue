@@ -51,7 +51,8 @@ export default {
       return `${this.currentState}Vue`
     },
     currentQuestionResult: function(): Result {
-      const x =  this.currentResults[this.currentQuestion.index]
+      if (!this.currentQuestion || !this.currentResult) return undefined
+      const x = this.currentResults[this.currentQuestion.index]
       console.log(x)
       return x
     }
