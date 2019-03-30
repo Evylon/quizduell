@@ -1,7 +1,9 @@
 <template>
   <div id="quiz_container">
 
-    <div id="area_question">
+    <div id="area_question"
+      v-on:click="next"
+    >
       <div id="text_category_container">
         <div id="area_category">
           <div id=text_category>{{ question.category }}</div>
@@ -102,6 +104,9 @@ export default {
     },
     selectNoAnswer() {
       this.$emit('no-answer-selected')
+    },
+    next() {
+      this.$emit('question-close')
     }
   }
 }

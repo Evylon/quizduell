@@ -8,6 +8,7 @@
       v-bind:timed="false"
       v-on:answer-selected="answerSelected"
       v-on:results-close="resultsClose"
+      v-on:question-close="questionClose"
     ></component>
   </div>
 </template>
@@ -50,10 +51,12 @@ export default {
       return `${this.currentState}Vue`
     },
     currentQuestionResult: function(): Result {
-      if (!this.currentQuestion || !this.currentResult) return undefined
-      const x = this.currentResults[this.currentQuestion.index]
-      console.log(x)
-      return x
+      const currentQuestion = this.currentQuestion
+      const currentResults = this.currentResults
+      if (!currentQuestion || !currentResults) return undefined
+      const currentResult = currentResults[currentQuestion.index]
+      console.log(currentResult)
+      return currentResult
     }
   },
   methods: {
@@ -86,35 +89,34 @@ export default {
         })
       })
       console.log(`Saved answer, index: ${index}`)
-      if ((questionIndex + 1) % 3 === 0) {
-        console.log('Will display results next')
-        this.setState(State.Wait)
-        this.fetchResults()
-        return
-      }
-      console.log('Will display question next')
-      this.setState(State.Wait)
-      await Timeout.set(60_000)
-      this.fetchQuestion()
+      this.fetchResults()
+    },
+    async displayResults(): Promise<void> {
+      this.setState(State.Results)
     },
     async fetchResults(): Promise<void> {
-      while (true) {
-        const response = await fetch(`${this.$store.state.baseUrl}/results`)
-        if (response.status === 200) {
-          const results: Result[] = await response.json()
-          console.log(`Received results: ${JSON.stringify(results)}`)
-          this.currentResults = results
-          this.setState(State.Results)
-          break
-        }
-        console.log(`Could not get results, status was: ${response.status}`)
-        await Timeout.set(1_000)
-      }
+      const response = await fetch(`${this.$store.state.baseUrl}/results`)
+      const results: Result[] = await response.json()
+      console.log(`Received results: ${JSON.stringify(results)}`)
+      this.currentResults = results
     },
     async resultsClose(): Promise<void> {
       console.log('Results closed')
       this.setState(State.Wait)
       await Timeout.set(60_000)
+      this.fetchQuestion()
+    },
+    async questionClose(): Promise<void> {
+      console.log('Question closed')
+      const questionIndex = this.currentQuestion.index
+      if ((questionIndex + 1) % 3 === 0) {
+        console.log('Will display results next')
+        this.displayResults()
+        return
+      }
+      console.log('Will display question next')
+      this.setState(State.Wait)
+      await Timeout.set(1_000)
       this.fetchQuestion()
     }
   }
