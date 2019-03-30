@@ -1,19 +1,16 @@
+import * as Signal from 'await-signal'
+import * as Timeout from 'await-timeout'
 import * as express from 'express'
 import * as _ from 'lodash'
-import * as Timeout from 'await-timeout'
-
-import * as logger from './logger'
 import Question from '../shared/Question'
+import Result from '../shared/Result'
+import * as logger from './logger'
 
 interface QuestionDefinition {
   text: string,
   answers: string[],
-  correctAnswer: string,
+  correctAnswerIndex: number,
   category: string,
-}
-
-interface QuestionResponses {
-  [userid: string]: number
 }
 
 enum State {
@@ -21,37 +18,46 @@ enum State {
   RemoteQuestion,
   RemoteQuestionGracePeriod,
   LocalQuestion,
+  FinishQuestion,
 }
 
 const QUESTION_TIME = 10 * 1000
-const QUESTION_GRACE_TIME = 5 * 1000
+const QUESTION_GRACE_TIME = 1 * 1000
 
 class API {
   public router: express.Router
   private timer: Timeout
+  private stateSignal: Signal
 
   private questions: QuestionDefinition[]
 
   private state: State
+  private currentQuestion: QuestionDefinition
   private currentQuestionIndex: number
   private currentQuestionStartTimestamp: number
-  private currentQuestionResponses: QuestionResponses
+  private currentQuestionRemoteAnswers: {
+    [userid: string]: number
+  }
+  private currentQuestionLocalAnswer?: number
+
+  private results: Result[]
 
   constructor() {
     this.router = express.Router()
     this.timer = new Timeout()
+    this.stateSignal = new Signal(State.Waiting)
 
     this.questions = require('./questions.json')
 
-    this.state = State.Waiting
+    this.results = []
 
     this.setupRoutes()
   }
 
   private setupRoutes(): void {
     this.router.get('/remote/question', (req, res) => {
-      if (this.state === State.RemoteQuestion) {
-        res.status(200).send(this.createQuestion(this.currentQuestionIndex))
+      if (this.stateSignal.state === State.RemoteQuestion) {
+        res.status(200).send(this.createQuestion(this.getRemainingTime()))
       } else {
         res.status(204).send()
       }
@@ -59,51 +65,165 @@ class API {
 
     this.router.put('/remote/question/:index/answer/:userid', (req, res) => {
       const index = parseInt(req.params.index, 10)
-      if ((this.state === State.RemoteQuestion || this.state === State.RemoteQuestionGracePeriod) && index === this.currentQuestionIndex) {
-        if (this.currentQuestionResponses[req.params.userid] !== undefined) {
-          res.status(409).send()
+      if ((this.stateSignal.state === State.RemoteQuestion || this.stateSignal.state === State.RemoteQuestionGracePeriod) && index === this.currentQuestionIndex) {
+        const answerCheckResult = this.checkAnswerBody(req.body, this.currentQuestionRemoteAnswers[req.params.userid])
+        if (answerCheckResult) {
+          res.status(answerCheckResult.status).send(answerCheckResult.msg)
           return
         }
-        this.currentQuestionResponses[req.params.userid] = req.body.answerIndex
-        logger.info(this.currentQuestionResponses, 'Received response')
+        this.currentQuestionRemoteAnswers[req.params.userid] = req.body.answerIndex
+        logger.info({ remoteAnswers: this.currentQuestionRemoteAnswers }, 'Received remote answer')
         res.status(200).send()
       } else {
         res.status(403).send()
       }
     })
 
+    this.router.get('/local/question', (req, res) => {
+      if (this.stateSignal.state === State.LocalQuestion) {
+        res.status(200).send(this.createQuestion(Infinity))
+      } else {
+        res.status(204).send()
+      }
+    })
+
+    this.router.put('/local/question/:index/answer', (req, res) => {
+      const index = parseInt(req.params.index, 10)
+      if (this.stateSignal.state === State.LocalQuestion && index === this.currentQuestionIndex) {
+        const answerCheckResult = this.checkAnswerBody(req.body, this.currentQuestionLocalAnswer)
+        if (answerCheckResult) {
+          res.status(answerCheckResult.status).send(answerCheckResult.msg)
+          return
+        }
+        this.currentQuestionLocalAnswer = req.body.answerIndex
+        logger.info({ answerIndex: req.body.answerIndex }, 'Received local answer')
+        this.stateSignal.state = State.FinishQuestion
+        res.status(200).send()
+      } else {
+        res.status(403).send()
+      }
+    })
+
+    this.router.get('/results', (req, res) => {
+      res.send(this.results)
+    })
+
     this.router.post('/admin/start', (req, res) => {
-      this.startQuestion(0)
+      this.runQuestion(0)
+      res.status(200).send()
+    })
+
+    this.router.post('/admin/next', (req, res) => {
+      this.runQuestion(this.currentQuestionIndex + 1)
+      res.status(200).send()
+    })
+
+    this.router.post('/admin/jump', (req, res) => {
+      this.runQuestion(req.body.questionIndex)
       res.status(200).send()
     })
   }
 
-  private async startQuestion(index: number) {
+  private async runQuestion(index: number) {
     this.timer.clear()
+    this.resetSignal()
 
     logger.info(`Starting question ${index} RemoteQuestion`)
-    this.state = State.RemoteQuestion
+    this.stateSignal.state = State.RemoteQuestion
+    this.currentQuestion = this.questions[index]
     this.currentQuestionIndex = index
     this.currentQuestionStartTimestamp = (new Date()).getTime()
-    this.currentQuestionResponses = {}
+    this.currentQuestionRemoteAnswers = {}
     await this.timer.set(QUESTION_TIME)
 
     logger.info(`Starting question ${index} RemoteQuestionGracePeriod`)
-    this.state = State.RemoteQuestionGracePeriod
+    this.stateSignal.state = State.RemoteQuestionGracePeriod
     await this.timer.set(QUESTION_GRACE_TIME)
-    // TODO evaluate results
 
     logger.info(`Starting question ${index} LocalQuestion`)
-    this.state = State.LocalQuestion
+    this.stateSignal.state = State.LocalQuestion
+    await this.stateSignal.until(State.FinishQuestion)
+
+    logger.info(`Starting question ${index} FinishQuestion`)
+    const result = this.createResult()
+    this.results[this.currentQuestionIndex] = result
+    this.stateSignal.state = State.Waiting
+
+    logger.info('Finished, entering Waiting')
   }
 
-  private createQuestion(index: number): Question {
-    const elapsedTime = ((new Date()).getTime() - this.currentQuestionStartTimestamp)
+  private createQuestion(remainingTime: number): Question {
     return {
-      index,
-      remainingTime: (QUESTION_TIME - elapsedTime) / 1000,
-      ..._.omit(this.questions[index], 'correctAnswer')
+      remainingTime,
+      index: this.currentQuestionIndex,
+      ..._.omit(this.currentQuestion, 'correctAnswerIndex')
     }
+  }
+
+  private checkAnswerBody(body: any, previousAnswer: number): { status: number, msg?: string } {
+    if (previousAnswer !== undefined) {
+      return {
+        status: 409
+      }
+    }
+    if (typeof body !== 'object' || body === null) {
+      return {
+        status: 400,
+        msg: 'body must be object',
+      }
+    }
+    if (!Number.isInteger(body.answerIndex)) {
+      return {
+        status: 400,
+        msg: 'answerIndex must be number',
+      }
+    }
+    if (this.currentQuestion.answers[body.answerIndex] == null) {
+      return {
+        status: 400,
+        msg: 'answerIndex out of bounds',
+      }
+    }
+  }
+
+  private createResult(): Result {
+    const question = this.createQuestion(null)
+    const correctAnswerIndex = this.questions[this.currentQuestionIndex].correctAnswerIndex
+
+    const totalRemoteAnswerCount = Object.keys(this.currentQuestionRemoteAnswers).length
+    const remoteAnswerPercentages = []
+    let remoteMaxPercentage = -Infinity
+    let remoteAnswerIndex: number
+    for (const answerKey of Object.keys(question.answers)) {
+      const answerIndex = parseInt(answerKey, 10)
+      const remoteAnswerCount = Object.values(this.currentQuestionRemoteAnswers).filter(i => i === answerIndex).length
+      const remoteAnswerPercentage = totalRemoteAnswerCount === 0 ? 0 : (remoteAnswerCount / totalRemoteAnswerCount) * 100
+      remoteAnswerPercentages[answerIndex] = remoteAnswerPercentage
+      if (remoteAnswerPercentage > remoteMaxPercentage) {
+        remoteMaxPercentage = remoteAnswerPercentage
+        remoteAnswerIndex = answerIndex
+      }
+    }
+    if (remoteAnswerPercentages.indexOf(remoteMaxPercentage) !== remoteAnswerPercentages.lastIndexOf(remoteMaxPercentage)) {
+      remoteAnswerIndex = -Infinity
+    }
+
+    return {
+      question, correctAnswerIndex, remoteAnswerPercentages,
+      localAnswerIndex: this.currentQuestionLocalAnswer,
+      localCorrect: this.currentQuestionLocalAnswer === correctAnswerIndex,
+      remoteCorrect: remoteAnswerIndex === correctAnswerIndex
+    }
+  }
+
+  private resetSignal(): void {
+    // create new signal, so anyone waiting for the old signal never gets woken
+    this.stateSignal = new Signal(this.stateSignal.state)
+  }
+
+  private getRemainingTime(): number {
+    const elapsedTime = ((new Date()).getTime() - this.currentQuestionStartTimestamp)
+    return (QUESTION_TIME - elapsedTime) / 1000
   }
 }
 
