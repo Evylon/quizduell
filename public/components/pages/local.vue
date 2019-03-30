@@ -21,7 +21,6 @@ import resultsVue from '../content/results.vue'
 import Question from '../../../shared/Question'
 import Result from '../../../shared/Result'
 import { resultsMock } from '../../functions/resultsMock'
-import { Stats } from 'fs';
 
 enum State {
     Wait = 'wait',
@@ -87,18 +86,20 @@ export default {
         })
       })
       console.log(`Saved answer, index: ${index}`)
-      if (questionIndex % 3 === 0) {
+      if ((questionIndex + 1) % 3 === 0) {
+        console.log('Will display results next')
         this.setState(State.Wait)
         this.fetchResults()
         return
       }
+      console.log('Will display question next')
       this.setState(State.Wait)
       await Timeout.set(60_000)
       this.fetchQuestion()
     },
     async fetchResults(): Promise<void> {
       while (true) {
-        const response = await fetch(`${this.$store.state.baseUrl}/local/results`)
+        const response = await fetch(`${this.$store.state.baseUrl}/results`)
         if (response.status === 200) {
           const results: Result[] = await response.json()
           console.log(`Received results: ${JSON.stringify(results)}`)
