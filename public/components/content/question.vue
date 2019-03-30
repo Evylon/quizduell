@@ -14,37 +14,37 @@
       </div>
     </div>
 
-    <div id="area_answers_complete">
+    <div id="area_answers_complete" v-bind:class="{ hasResults: !!result}">
       <div id="area_answers_1row" class="area_answers">
         <button class="button_answer"
           v-on:click="selectAnswer(0)" v-bind:class="createClasses(0)"
-          v-bind:style="{ '--percentage': `${ result && result.remoteAnswerPercentages[0] ? result.remoteAnswerPercentages[0] : 0 }%` }"
+          v-bind:style="{ '--percentage': `${ result ? result.remoteAnswerPercentages[0] : 0 }%` }"
         >
           {{ question.answers[0] }}
-          <div class="precentage_bubble" v-if="result && result.remoteAnswerPercentages">{{ result.remoteAnswerPercentages[0] + '%' }}</div>
+          <div class="precentage_bubble">{{ (result ? result.remoteAnswerPercentages[0] : 0) + '%' }}</div>
         </button>
         <button class="button_answer"
           v-on:click="selectAnswer(1)" v-bind:class="createClasses(1)"
-          v-bind:style="{ '--percentage': `${ result && result.remoteAnswerPercentages[1] ? result.remoteAnswerPercentages[1] : 0 }%` }"
+          v-bind:style="{ '--percentage': `${ result ? result.remoteAnswerPercentages[1] : 0 }%` }"
         >
           {{ question.answers[1] }}
-          <div class="precentage_bubble" v-if="result && result.remoteAnswerPercentages">{{ result.remoteAnswerPercentages[1] + '%' }}</div>
+          <div class="precentage_bubble">{{ (result ? result.remoteAnswerPercentages[1] : 0) + '%' }}</div>
         </button>
       </div>
       <div id="area_answers_2row" class="area_answers">
         <button class="button_answer"
           v-on:click="selectAnswer(2)" v-bind:class="createClasses(2)"
-          v-bind:style="{ '--percentage': `${ result && result.remoteAnswerPercentages[2] ? result.remoteAnswerPercentages[2] : 0 }%` }"
+          v-bind:style="{ '--percentage': `${ result ? result.remoteAnswerPercentages[2] : 0 }%` }"
         >
           {{ question.answers[2] }}
-          <div class="precentage_bubble" v-if="result && result.remoteAnswerPercentages">{{ result.remoteAnswerPercentages[2] + '%' }}</div>
+          <div class="precentage_bubble">{{ (result ? result.remoteAnswerPercentages[2] : 0) + '%' }}</div>
         </button>
         <button class="button_answer"
           v-on:click="selectAnswer(3)" v-bind:class="createClasses(3)"
-          v-bind:style="{ '--percentage': `${ result && result.remoteAnswerPercentages[3] ? result.remoteAnswerPercentages[3] : 0 }%` }"
+          v-bind:style="{ '--percentage': `${ result ? result.remoteAnswerPercentages[3] : 0 }%` }"
         >
           {{ question.answers[3] }}
-          <div class="precentage_bubble" v-if="result && result.remoteAnswerPercentages">{{ result.remoteAnswerPercentages[3] + '%' }}</div>
+          <div class="precentage_bubble">{{ (result ? result.remoteAnswerPercentages[3] : 0) + '%' }}</div>
         </button>
       </div>
     </div>
@@ -312,7 +312,7 @@ body {
   font-size: 12px; 
   position:absolute;
   top: 0;
-  left: var(--percentage);
+  left: 0%;
 	background: #ffffff;
 	border-radius: 4px;
   padding: 0 .1em;
@@ -325,7 +325,10 @@ body {
   text-shadow: none;
   transition: left 1s;
   transform-origin: 50% calc(100% + var(--arrow-size));
-  animation: scale 1s both;
+  transition-property: left, transform, opacity;
+
+  transform: scale(0);
+  opacity: 0;
 }
 
 .precentage_bubble:after {
@@ -344,16 +347,14 @@ body {
 
 .remoteCorrect .precentage_bubble {
   font-size: 16px; 
+  z-index: 10;
 }
 
 
-@keyframes scale {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
+.hasResults .precentage_bubble {
+  left: var(--percentage);
+  transform: scale(1);
+  opacity: 1;
 }
 
 
