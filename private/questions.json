@@ -1,145 +1,101 @@
 [
   {
-    "text": "Where do vanished objects go?",
+    "text": "Was hatte Tilman in seinem Zimmer?",
     "answers": [
-      "Into non-being, that is to say everything",
-      "Your mom",
-      "42",
-      "..."
+      "Gemischte Kleidung",
+      "Diverse Wäsche",
+      "Unterschiedliche Anziehsachen",
+      "Vermengte Hemden"
     ],
     "correctAnswerIndex": 0,
-    "category": "Harry Potter"
+    "category": "Enkelkinder"
   },
   {
-    "text": "What came first, the phoenix or the flame?",
+    "text": "Was mussten Oma & Opa früher stundenlang ertragen?",
     "answers": [
-      "Phoenix",
-      "Egg",
-      "Flame",
-      "A circle has no beginning"
+      "Käsebrot",
+      "Fischbrötchen",
+      "Cheeseburger",
+      "Avocadotoast"
+    ],
+    "correctAnswerIndex": 1,
+    "category": "Damals"
+  },
+  {
+    "text": "Wie machte Opa früher Hausaufgaben?",
+    "answers": [
+      "Ohne Stifte",
+      "Ohne Stuhl",
+      "Ohne Hose",
+      "Ohne Bücher"
     ],
     "correctAnswerIndex": 3,
-    "category": "Harry Potter"
+    "category": "Damals"
   },
   {
-    "text": "Was ist 28/7",
+    "text": "Was gehört nicht in eine Roulade?",
     "answers": [
-      "7 Geißlein",
-      "4 Torten",
-      "28 Wackersteine",
-      "3 Wecker"
+      "Saure Gurken",
+      "Zwiebeln",
+      "Speck",
+      "Wiener Würstchen"
     ],
     "correctAnswerIndex": 1,
-    "category": "Otto Waalkes"
+    "category": "Essen & Trinken"
   },
   {
-    "text": "Welches ist die Höchstgeschwindigkeit einer unbeladenen Schwalbe?",
+    "text": "Für was ist Opa in der Küche NICHT zuständig?",
     "answers": [
-      "50km/h",
-      "70km/h",
-      "90km/h",
-      "200km/h"
+      "Kaffee kochen",
+      "Rouladen rollen",
+      "Obstsalat schnibbeln",
+      "Klöße rollen"
     ],
-    "correctAnswerIndex": 1,
-    "category": "Kokosnüsse"
+    "correctAnswerIndex": 4,
+    "category": "Essen & Trinken"
   },
   {
-    "text": "Welchen Warnhinweis sieht man häufig im Alltag?",
+    "text": "Was ist laut Oma die schwierigste Multiplikation im kleinen Einmaleins?",
     "answers": [
-      "Böll findet nicht statt!",
-      "Grass entfällt!",
-      "Brecht abgesagt!",
-      "Frisch gestrichen!"
+      "4x12",
+      "3x9",
+      "7x8",
+      "7x7"
     ],
     "correctAnswerIndex": 3,
-    "category": "50€-Frage"
+    "category": "Mathematik"
   },
   {
-    "text": "1/4 ist ...?",
+    "text": "An welchem Wochentag wurde der erste Enkel geboren?",
     "answers": [
-      "bank Raub",
-      "dieb Stahl",
-      "scheck Betrug",
-      "ein Bruch"
+      "Montag",
+      "Dienstag",
+      "Mittwoch",
+      "Donnerstag"
+    ],
+    "correctAnswerIndex": 1,
+    "category": "Wochentage"
+  },
+  {
+    "text": "Wie viele Joker gehören in ein Romme-Spiel?",
+    "answers": [
+      "2",
+      "4",
+      "6",
+      "8"
     ],
     "correctAnswerIndex": 3,
-    "category": "50€-Frage"
+    "category": "Freizeit"
   },
   {
-    "text": "Wenn man eins von zwei Löchern im Reifen flickt, dann wird er ...?",
+    "text": "Was rauchte Oma in ihrer Jugend?",
     "answers": [
-      "bildhauer",
-      "maler",
-      "dichter",
-      "sänger"
-    ],
-    "correctAnswerIndex": 2,
-    "category": "50€-Frage"
-  },
-  {
-    "text": "Was dient nicht zur Verhütung?",
-    "answers": [
-      "Kondom",
-      "Coitus interruptus",
-      "Glücksspirale",
-      "Pille"
-    ],
-    "correctAnswerIndex": 2,
-    "category": "50€-Frage"
-  },
-  {
-    "text": "Wobei handelt es sich um ein beliebtes Getränk an kalten Tagen?",
-    "answers": [
-      "call me strawberry",
-      "heiße Zitrone",
-      "nennt mich Kirsche",
-      "bin die Banane"
+      "Kastanienblätter",
+      "Joints",
+      "Kirschblüten",
+      "Lupinenzweige"
     ],
     "correctAnswerIndex": 1,
-    "category": "50€-Frage"
-  },
-  {
-    "text": "Was kommt in Ostasien häufig auf den Tisch?",
-    "answers": [
-      "Sonicht",
-      "Soschoneher",
-      "Soja",
-      "Sovielleicht"
-    ],
-    "correctAnswerIndex": 2,
-    "category": "50€-Frage"
-  },
-  {
-    "text": "Die Dinosaurier lebten ...?",
-    "answers": [
-      "in der Kreide",
-      "knietief im Dispo",
-      "auf Pump",
-      "mit Schulden"
-    ],
-    "correctAnswerIndex": 0,
-    "category": "50€-Frage"
-  },
-  {
-    "text": "Scotty, der Ingenieur des Raumschiffs Enterprise, war bei den \"Ausflügen\" meist nicht dabei, weil er ...?",
-    "answers": [
-      "angestellte",
-      "beamte",
-      "selbstständige",
-      "vorgesetzte"
-    ],
-    "correctAnswerIndex": 1,
-    "category": "50€-Frage"
-  },
-  {
-    "text": "Wofür gibt es einen Oscar?",
-    "answers": [
-      "Toller Chirurg",
-      "Exquisites Skalpell",
-      "Bester Schnitt",
-      "Fabelhafte OP"
-    ],
-    "correctAnswerIndex": 2,
     "category": "50€-Frage"
   }
 ]
