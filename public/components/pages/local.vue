@@ -39,15 +39,10 @@ export default {
     this.fetchQuestion()
   },
   mounted() {
-    window.addEventListener("keypress", (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        switch (this.currentState) {
-          case State.Start: this.startClose(); break;
-          case State.Question: this.questionClose(); break;
-          case State.Results: this.resultsClose(); break;
-        }
-      }
-    })
+    window.addEventListener('keypress', this.handleKeypress)
+  },
+  destroyed(){
+    window.removeEventListener('keypress', this.handleKeypress)
   },
   data() {
     return {
@@ -147,7 +142,16 @@ export default {
       await fetch(`${this.$store.state.baseUrl}/admin/next`, {
         method: 'POST'
       })
-    }
+    },
+    handleKeypress(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        switch (this.currentState) {
+          case State.Start: this.startClose(); break;
+          case State.Question: this.questionClose(); break;
+          case State.Results: this.resultsClose(); break;
+        }
+      }
+    },
   }
 }
 </script>

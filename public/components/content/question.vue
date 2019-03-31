@@ -70,14 +70,10 @@ import Result from '../../../shared/Result'
 
 export default {
   mounted() {
-    window.addEventListener("keypress", (e) => {
-      switch (e.key) {
-        case 'q': this.selectAnswer(0); break;
-        case 'w': this.selectAnswer(1); break;
-        case 'a': this.selectAnswer(2); break;
-        case 's': this.selectAnswer(3); break;
-      }
-    })
+    window.addEventListener('keypress', this.handleKeypress)
+  },
+  destroyed(){
+    window.removeEventListener('keypress', this.handleKeypress)
   },
   props: {
     question: {
@@ -130,6 +126,15 @@ export default {
         correct: this.result && this.result.correctAnswerIndex == index, 
         wrong: this.result && this.result.correctAnswerIndex != index && this.result.localAnswerIndex == index,
         remoteCorrect: this.result && this.result.remoteAnswerIndex == index,
+      }
+    },
+    handleKeypress(e) {
+      console.log('keypress', this)
+      switch (e.key) {
+        case 'q': this.selectAnswer(0); break;
+        case 'w': this.selectAnswer(1); break;
+        case 'a': this.selectAnswer(2); break;
+        case 's': this.selectAnswer(3); break;
       }
     }
   }
