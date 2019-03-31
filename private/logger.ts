@@ -28,8 +28,8 @@ function error(dataOrMessage: any, maybeMessage?: string) {
     message = dataOrMessage
   }
   const error = data.error
-  data.errorMessage = error.message
-  data.errorStack = error.stack
+  data.errorMessage = error && error.message
+  data.errorStack = error && error.stack
   data.msg = message
   const logEntry = JSON.stringify(data, null, 2)
   console.error(logEntry)
