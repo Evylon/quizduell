@@ -35,8 +35,19 @@ enum State {
 }
 
 export default {
-  created: function() {
+  created() {
     this.fetchQuestion()
+  },
+  mounted() {
+    window.addEventListener("keypress", (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        switch (this.currentState) {
+          case State.Start: this.startClose(); break;
+          case State.Question: this.questionClose(); break;
+          case State.Results: this.resultsClose(); break;
+        }
+      }
+    })
   },
   data() {
     return {
@@ -136,7 +147,7 @@ export default {
       await fetch(`${this.$store.state.baseUrl}/admin/next`, {
         method: 'POST'
       })
-    } 
+    }
   }
 }
 </script>

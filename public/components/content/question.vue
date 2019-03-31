@@ -69,6 +69,16 @@ import Question from '../../../shared/Question'
 import Result from '../../../shared/Result'
 
 export default {
+  mounted() {
+    window.addEventListener("keypress", (e) => {
+      switch (e.key) {
+        case 'q': this.selectAnswer(0); break;
+        case 'w': this.selectAnswer(1); break;
+        case 'a': this.selectAnswer(2); break;
+        case 's': this.selectAnswer(3); break;
+      }
+    })
+  },
   props: {
     question: {
       type: Object,
