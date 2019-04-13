@@ -1,101 +1,167 @@
 [
   {
-    "text": "Was hatte Tilman in seinem Zimmer?",
+    "category": "Essen & Trinken",
+    "text": "Welche Spirituose hat eine Fledermaus als Logo?",
     "answers": [
-      "Gemischte Kleidung",
-      "Diverse Wäsche",
-      "Unterschiedliche Anziehsachen",
-      "Vermengte Hemden"
+      "Absolut",
+      "Bacardi",
+      "Finlandia",
+      "Czlivovitza"
     ],
-    "correctAnswerIndex": 0,
-    "category": "Enkelkinder"
+    "correctAnswerIndex": 1
   },
   {
-    "text": "Was mussten Oma & Opa früher stundenlang ertragen?",
+    "category": "Essen & Trinken",
+    "text": "Was wird in der Schweiz in der Regel aus einem Boccalino getrunken?",
     "answers": [
-      "Käsebrot",
-      "Fischbrötchen",
-      "Cheeseburger",
-      "Avocadotoast"
+      "Milch",
+      "Bier",
+      "Wein",
+      "Grappa"
     ],
-    "correctAnswerIndex": 1,
-    "category": "Damals"
+    "correctAnswerIndex": 2
   },
   {
-    "text": "Wie machte Opa früher Hausaufgaben?",
+    "category": "Essen & Trinken",
+    "text": "Was sind Poweraden?",
     "answers": [
-      "Ohne Stifte",
-      "Ohne Stuhl",
-      "Ohne Hose",
-      "Ohne Bücher"
+      "Palmherzen",
+      "Artischocken",
+      "Bambus",
+      "Spargel"
     ],
-    "correctAnswerIndex": 2,
-    "category": "Damals"
+    "correctAnswerIndex": 1
   },
   {
-    "text": "Was gehört nicht in eine Roulade?",
+    "category": "Im Labor",
+    "text": "Welche Längeneinheit ist am kleinsten?",
     "answers": [
-      "Saure Gurken",
-      "Zwiebeln",
-      "Speck",
-      "Wiener Würstchen"
+      "mm",
+      "nm",
+      "km",
+      "pm"
     ],
-    "correctAnswerIndex": 3,
-    "category": "Essen & Trinken"
+    "correctAnswerIndex": 3
   },
   {
-    "text": "Für was ist Opa in der Küche NICHT zuständig?",
+    "category": "Im Labor",
+    "text": "Was sieht man, wenn man unter dem Mikroskop Protozoen beobachtet?",
     "answers": [
-      "Kaffee kochen",
-      "Rouladen rollen",
-      "Obstsalat schnibbeln",
-      "Klöße rollen"
+      "Pilze",
+      "Bakterien",
+      "Einzeller",
+      "Viren"
     ],
-    "correctAnswerIndex": 3,
-    "category": "Essen & Trinken"
+    "correctAnswerIndex": 2
   },
   {
-    "text": "Was ist laut Oma die schwierigste Multiplikation im kleinen Einmaleins?",
+    "category": "Im Labor",
+    "text": "Für welche Entschlüsselung wurde 2017 der Nobelpreis der Medizin verliehen?",
     "answers": [
-      "4x12",
-      "3x9",
-      "7x8",
-      "7x7"
+      "Innere Uhr des Menschen",
+      "Ribosomale DNA",
+      "Sexualtrieb",
+      "Einfluss der Gezeiten"
     ],
-    "correctAnswerIndex": 2,
-    "category": "Mathematik"
+    "correctAnswerIndex": 0
   },
   {
-    "text": "An welchem Wochentag wurde der erste Enkel geboren?",
+    "category": "Körper & Geist",
+    "text": "In welchem der folgenden Körperteile befindet sich ein Schließmuskel?",
     "answers": [
-      "Montag",
-      "Dienstag",
-      "Mittwoch",
-      "Donnerstag"
+      "Schulter",
+      "Hand",
+      "Auge",
+      "Wade"
     ],
-    "correctAnswerIndex": 0,
-    "category": "Wochentage"
+    "correctAnswerIndex": 2
   },
   {
-    "text": "Wie viele Joker gehören in ein Romme-Spiel?",
+    "category": "Körper & Geist",
+    "text": "Welches Organ hat die Größe einer geballten Faust, und dient als Speicherort für Monozyten?",
     "answers": [
-      "2",
-      "4",
-      "6",
-      "8"
+      "Leber",
+      "Milz",
+      "Herz",
+      "Niere"
     ],
-    "correctAnswerIndex": 2,
-    "category": "Freizeit"
+    "correctAnswerIndex": 1
   },
   {
-    "text": "Was rauchte Oma in ihrer Jugend?",
+    "category": "Körper & Geist",
+    "text": "Bei welcher Krankheit wird das Medikament Allopurinol eingesetzt?",
     "answers": [
-      "Kastanienblätter",
-      "Joints",
-      "Kirschblüten",
-      "Lupinenzweige"
+      "Gicht",
+      "Lundenentzündung",
+      "Herzinsuffizienz",
+      "Niereninsuffizienz"
     ],
-    "correctAnswerIndex": 0,
-    "category": "50€-Frage"
+    "correctAnswerIndex": 0
+  },
+  {
+    "category": "Draußen im Grünen",
+    "text": "Welche dieser Schlangen ist am giftigsten?",
+    "answers": [
+      "Kreuzotter",
+      "Warzenschlange",
+      "Schwarze Mamba",
+      "Erdschlange"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "category": "Draußen im Grünen",
+    "text": "Was ist keine Meisenart?",
+    "answers": [
+      "Buchenmeise",
+      "Tannenmeise",
+      "Haubenmeise",
+      "Schwanzmeise"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "category": "Draußen im Grünen",
+    "text": "Was ist Gabbro?",
+    "answers": [
+      "Pferd",
+      "Wasserpflanze",
+      "Fisch",
+      "Gestein"
+    ],
+    "correctAnswerIndex": 3
+  },
+  {
+    "category": "Medien & Unterhaltung",
+    "text": "Wer wurde 2012 von der Zeitschrift \"People\" zum \"Sexiest Man Alive\" gewählt?",
+    "answers": [
+      "Tom Hanks",
+      "Jason Derulo",
+      "Taylor Lautner",
+      "Channing Tatum"
+    ],
+    "correctAnswerIndex": 3
+  },
+  {
+    "category": "Medien & Unterhaltung",
+    "text": "Welches Lied war kein deutscher Beitrag beim Eurovision Song Contest?",
+    "answers": [
+      "Wer Liebe Lebt",
+      "I Can't Live Without Music",
+      "Troubadour",
+      "No No Never"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "category": "Medien & Unterhaltung",
+    "text": "Für welches Produkt warb die Werbefigur \"Karin Sommer\" in den 70er und 80er Jahren?",
+    "answers": [
+      "Versicherung",
+      "Kaffee",
+      "Gardinen",
+      "Waschmittel"
+    ],
+    "correctAnswerIndex": 1
   }
 ]
