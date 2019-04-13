@@ -29,6 +29,13 @@ body {
   background-size: cover;
   background-position: bottom center;
   background-repeat: no-repeat;
+
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
 }
 
 #app {
@@ -44,7 +51,15 @@ h1 {
   text-shadow: 0.04em 0.04em #0f678f; 
 }
 
+.local h1 {
+  font-size: 100px;
+}
+
 h1.full-page {
+  margin-top: 25vh;
+}
+
+.local h1.full-page {
   margin-top: 30vh;
 }
 
@@ -54,6 +69,10 @@ h2 {
   font-size: 35px;
   font-weight: 700;
   text-shadow: 0.04em 0.04em #0f678f; 
+}
+
+.local h2 {
+  font-size: 60px;
 }
 
 </style>

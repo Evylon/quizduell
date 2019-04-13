@@ -1,5 +1,7 @@
 <template>
-  <div id="quiz_container">
+  <div id="quiz_container"
+    v-bind:class="{ remote: timed, local: !timed }"
+  >
 
     <div id="area_question"
       v-on:click="next"
@@ -95,7 +97,6 @@ export default {
     }
   },
   async created() {
-    this.message = `Frage ${this.question.index} gegen Gisi`
     if (this.timed) {
       console.log(this.question.remainingTime)
       console.log(this.timeRemainingMilliseconds)
@@ -144,7 +145,6 @@ export default {
 <style lang="scss">
 
 #quiz_container {
-  max-width: 700px;
   margin: 0 auto;
   padding: 15px 10px;
 }
@@ -152,15 +152,18 @@ export default {
 #area_question {
   display: flex;
   flex-direction: column;
+  line-height: 1.5;
   
-  margin-left: 5px;
-  margin-right: 5px;
-  height: 26vh;
-  font-size: 18px;
+  margin: 5px;
+  height: 30vh;
 
   border: none;
   border-radius: 8px;
   background-image: linear-gradient(150deg, #f5f5f5, #c8c8c8);
+}
+
+.local #area_question {
+  height: 37vh;
 }
 
 #text_category_container {
@@ -184,6 +187,10 @@ export default {
   text-shadow: 0px 1px 0px rgba(0,0,0,0.1);
 }
 
+.local #text_category {
+  font-size: 22px;
+}
+
 #text_question_container {
   flex-grow: 3;
   display: flex;
@@ -200,9 +207,8 @@ export default {
   text-align: center;
 }
 
-#area_answers_complete {
-  margin-top: 10px;
-  margin-bottom: 10px;
+.local #text_question {
+  font-size: 28px;
 }
 
 .area_answers {
@@ -214,7 +220,7 @@ export default {
 .button_answer {
   position: relative;
   width: 50%;
-  height: 20vh;
+  height: 18vh;
   margin: 5px;
   border: none;
   border-radius: 6px;
@@ -226,6 +232,11 @@ export default {
   text-shadow: 0px 1px 0 rgba(0,0,0,0.8);
   background-image: linear-gradient(to bottom, #434343, #2b2b2b);
   box-shadow: inset 0px -1.5px 0px rgba(0,0,0,.4), inset 0px 1.5px 0px rgba(255,255,255,.2);
+}
+
+.local .button_answer {
+  height: 27vh;
+  font-size: 26px;
 }
 
 .button_answer:hover {
@@ -303,7 +314,7 @@ export default {
   --height: 2.5em;
   --width: 3.5em;
   --pad-left: .1em;
-  font-size: 12px; 
+  font-size: 18px; 
   position:absolute;
   top: 0;
   left: 0%;
@@ -341,7 +352,7 @@ export default {
 }
 
 .remoteCorrect .precentage_bubble {
-  font-size: 16px; 
+  font-size: 22px; 
   z-index: 10;
   --pad-left: 2.5em;
   background-image: url('../../assets/avatar_family.png');

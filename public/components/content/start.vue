@@ -1,5 +1,5 @@
 <template>
-  <div id="start-container"
+  <div id="start-container" class="local"
     v-on:click="next"
   >
     <h1 class="full-page">{{ brand }}</h1>
@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       brand: 'Quizduell',
-      gameTitle: 'Oma & Opa gegen die Familie'
+      gameTitle: 'Melanie vs. Jutta' // 'Oma & Opa vs. Familie'
     }
   },
   methods: {

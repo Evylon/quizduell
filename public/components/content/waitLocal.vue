@@ -1,5 +1,5 @@
 <template>
-  <div id="logo-container">
+  <div id="logo-container" class="local">
     <h1 class="full-page">{{ brand }}</h1>
     <h2>{{ gameTitle }}</h2>
   </div>

@@ -157,6 +157,10 @@ export default {
 </script>
 
 <style lang="scss">
+#local-container {
+  margin: 0 -100px;
+}
+
 .fade-enter-active, .fade-leave-active {
   transition: all 0.8s ease-in-out;
 }

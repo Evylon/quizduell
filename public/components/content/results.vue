@@ -95,10 +95,10 @@ export default {
   data() {
     return {
       brand: 'Quizduell',
-      gameTitle: 'Oma & Opa vs. Family',
+      gameTitle: 'Melanie vs. Jutta', // 'Oma & Opa vs. Familie',
       roundTitle: 'Runde',
-      localName: 'Oma & Opa',
-      remoteName: 'Family'
+      localName: 'Melanie', // 'Oma & Opa',
+      remoteName: 'Jutta' // 'Familie'
     }
   },
   computed: {
@@ -165,9 +165,9 @@ export default {
 #header {
   grid-area: header;
   text-align: center;
-  font-size: 30pt;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  font-size: 40pt;
+  margin-top: 35px;
+  margin-bottom: 25px;
   font-weight: 700;
 }
 
@@ -232,7 +232,7 @@ export default {
 
 #score_overall {
   grid-area: column_2;
-  font-size: 36pt;
+  font-size: 50pt;
   text-align: center;
 }
 
@@ -252,8 +252,8 @@ export default {
 }
 
 .avatar_name_styling {
-  margin-top: 10px;
-  font-size: 22pt;
+  margin-top: 20px;
+  font-size: 26pt;
 }
 
 /* Grid definition for each round result */
@@ -273,6 +273,8 @@ export default {
   align-self: end;
   text-align: center;
   text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 300;
 }
 
 .round_number>div {
@@ -281,9 +283,10 @@ export default {
 
 .topic {
   text-align: center;
-  margin-left:10px;
-  margin-right:10px;
-  font-size: 11pt;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 20px;
+  font-weight: 300;
 }
 
 .topic.hidden {
@@ -316,6 +319,7 @@ export default {
   flex-direction: row;
   justify-content: flex-start;
   border-radius: 4px;
+  padding: 1px;
 } 
 
 .round_result {

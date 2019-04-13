@@ -1,5 +1,5 @@
 <template>
-  <div id="wait-container">
+  <div id="wait-container" class="remote">
     <h1 class="full-page">{{ brand }}</h1>
     <h2>{{ waitingMessage }}</h2>
   </div>
