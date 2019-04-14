@@ -18,8 +18,15 @@ export default {
 </script>
 
 <style lang="scss">
+html {
+  height: 100%;
+}
+
 
 body {
+  min-height: 100%;
+  display: flow-root;
+
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   background-color: #0f75a4;
   color: #fff;
