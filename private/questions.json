@@ -1,58 +1,47 @@
 [
   {
-    "category": "Essen & Trinken",
-    "text": "Welche Spirituose hat eine Fledermaus als Logo?",
+    "category": "Zeugen der Zeit",
+    "text": "Die Dinosaurier lebten ...?",
     "answers": [
-      "Absolut",
-      "Bacardi",
-      "Finlandia",
-      "Czlivovitza"
+      "in der Kreide",
+      "knietief im Dispo",
+      "auf Pump",
+      "mit Schulden"
     ],
-    "correctAnswerIndex": 1
+    "correctAnswerIndex": 0
   },
   {
-    "category": "Essen & Trinken",
-    "text": "Was wird in der Schweiz in der Regel aus einem Boccalino getrunken?",
+    "category": "Sport & Freizeit",
+    "text": "Wie häufig trafen die Bayern Pfosten oder Latte im Jahr 2018?",
     "answers": [
-      "Milch",
-      "Bier",
-      "Wein",
-      "Grappa"
+      "5 Mal",
+      "17 Mal",
+      "21 Mal",
+      "35 Mal"
     ],
     "correctAnswerIndex": 2
   },
   {
-    "category": "Essen & Trinken",
-    "text": "Was sind Poweraden?",
-    "answers": [
-      "Palmherzen",
-      "Artischocken",
-      "Bambus",
-      "Spargel"
-    ],
-    "correctAnswerIndex": 1
-  },
-  {
     "category": "Im Labor",
-    "text": "Welche Längeneinheit ist am kleinsten?",
+    "text": "Was ist laut Oma die schwierigste Multiplikation im kleinen Einmaleins?",
     "answers": [
-      "mm",
-      "nm",
-      "km",
-      "pm"
-    ],
-    "correctAnswerIndex": 3
-  },
-  {
-    "category": "Im Labor",
-    "text": "Was sieht man, wenn man unter dem Mikroskop Protozoen beobachtet?",
-    "answers": [
-      "Pilze",
-      "Bakterien",
-      "Einzeller",
-      "Viren"
+      "2x6",
+      "7x7",
+      "7x8",
+      "4x12"
     ],
     "correctAnswerIndex": 2
+  },
+  {
+    "category": "Rund um die Welt",
+    "text": "Wie lang ist der längte Straßentunnel Deutschlands?",
+    "answers": [
+      "8.574 Meter",
+      "7.916 Meter",
+      "7.103 Meter",
+      "7.740 Meter"
+    ],
+    "correctAnswerIndex": 1
   },
   {
     "category": "Im Labor",
@@ -66,102 +55,113 @@
     "correctAnswerIndex": 0
   },
   {
-    "category": "Körper & Geist",
-    "text": "In welchem der folgenden Körperteile befindet sich ein Schließmuskel?",
+    "category": "Zeugen der Zeit",
+    "text": "Wie machte Opa früher Hausaufgaben?",
     "answers": [
-      "Schulter",
-      "Hand",
-      "Auge",
-      "Wade"
-    ],
-    "correctAnswerIndex": 2
-  },
-  {
-    "category": "Körper & Geist",
-    "text": "Welches Organ hat die Größe einer geballten Faust, und dient als Speicherort für Monozyten?",
-    "answers": [
-      "Leber",
-      "Milz",
-      "Herz",
-      "Niere"
-    ],
-    "correctAnswerIndex": 1
-  },
-  {
-    "category": "Körper & Geist",
-    "text": "Bei welcher Krankheit wird das Medikament Allopurinol eingesetzt?",
-    "answers": [
-      "Gicht",
-      "Lundenentzündung",
-      "Herzinsuffizienz",
-      "Niereninsuffizienz"
+      "Ohne Hose",
+      "Ohne Stifte",
+      "Ohne Bücher",
+      "Ohne Stuhl"
     ],
     "correctAnswerIndex": 0
   },
   {
-    "category": "Draußen im Grünen",
-    "text": "Welche dieser Schlangen ist am giftigsten?",
+    "category": "Bücher & Wörter",
+    "text": "Was ist richtig geschrieben?",
     "answers": [
-      "Kreuzotter",
-      "Warzenschlange",
-      "Schwarze Mamba",
-      "Erdschlange"
+      "Grießklöschensuppe",
+      "Griessklöschensuppe",
+      "Griessklösschensuppe",
+      "Grießklößchensuppe"
     ],
-    "correctAnswerIndex": 2
+    "correctAnswerIndex": 3
   },
   {
-    "category": "Draußen im Grünen",
-    "text": "Was ist keine Meisenart?",
+    "category": "Comics",
+    "text": "Wie lauten die Namen der berühmten gallischen Comic-Helden?",
     "answers": [
-      "Buchenmeise",
-      "Tannenmeise",
-      "Haubenmeise",
-      "Schwanzmeise"
+      "Asterix & Obelix",
+      "Fix & Foxi",
+      "Trick & Track",
+      "Micky & Minnie"
     ],
     "correctAnswerIndex": 0
   },
   {
-    "category": "Draußen im Grünen",
-    "text": "Was ist Gabbro?",
+    "category": "Sport & Freizeit",
+    "text": "Welcher Tiere sind auf dem Halstuch von Biathlon-Trainer Mark Kirchner abgebildet?",
     "answers": [
-      "Pferd",
-      "Wasserpflanze",
-      "Fisch",
-      "Gestein"
-    ],
-    "correctAnswerIndex": 3
-  },
-  {
-    "category": "Medien & Unterhaltung",
-    "text": "Wer wurde 2012 von der Zeitschrift \"People\" zum \"Sexiest Man Alive\" gewählt?",
-    "answers": [
-      "Tom Hanks",
-      "Jason Derulo",
-      "Taylor Lautner",
-      "Channing Tatum"
-    ],
-    "correctAnswerIndex": 3
-  },
-  {
-    "category": "Medien & Unterhaltung",
-    "text": "Welches Lied war kein deutscher Beitrag beim Eurovision Song Contest?",
-    "answers": [
-      "Wer Liebe Lebt",
-      "I Can't Live Without Music",
-      "Troubadour",
-      "No No Never"
+      "Frösche",
+      "Bienen",
+      "Schafe",
+      "Bären"
     ],
     "correctAnswerIndex": 2
   },
   {
-    "category": "Medien & Unterhaltung",
-    "text": "Für welches Produkt warb die Werbefigur \"Karin Sommer\" in den 70er und 80er Jahren?",
+    "category": "Draußen im Grünen",
+    "text": "Wie viele Topfpflanzen hat Oma aktuell in ihrer Wohnung?",
     "answers": [
-      "Versicherung",
-      "Kaffee",
-      "Gardinen",
-      "Waschmittel"
+      "20",
+      "40",
+      "60",
+      "80"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "category": "Die 2000er",
+    "text": "Was mussten Oma & Opa früher stundenlang ertragen?",
+    "answers": [
+      "Käsebrot",
+      "Fischbrötchen",
+      "Cheeseburger",
+      "Avocadotoast"
     ],
     "correctAnswerIndex": 1
+  },
+  {
+    "category": "TV-Serien",
+    "text": "Wie heißt der Captain des Raumschiff Enterprise in der Serie TNG?",
+    "answers": [
+      "Captain Picard",
+      "Captain Cook",
+      "Captain Janeway",
+      "Captain Kroll"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "category": "Medien & Unterhaltung",
+    "text": "Wer wurde 2018 von der Zeitschrift \"People\" zum \"Sexiest Man Alive\" gewählt?",
+    "answers": [
+      "Daniel Craig",
+      "Idris Elba",
+      "Tom Hardy",
+      "Hans E. Fehringer"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "category": "Die 2000er",
+    "text": "Was hatte Tilman in seinem Zimmer?",
+    "answers": [
+      "Gemischte Kleidung",
+      "Diverse Wäsche",
+      "Unterschiedliche Anziehsachen",
+      "Vermengte Hemden"
+    ],
+    "correctAnswerIndex": 0
+  },
+  {
+    "category": "Medien & Unterhaltung",
+    "text": "Welcher Künstler tritt am 05.05.2019 in der Messe-Halle Erfurt auf?",
+    "answers": [
+      "David Hasselhoff",
+      "David Guetta",
+      "David Garrett",
+      "David Bowie"
+    ],
+    "correctAnswerIndex": 2
   }
 ]
