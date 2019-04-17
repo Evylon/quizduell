@@ -95,10 +95,10 @@ export default {
   data() {
     return {
       brand: 'Quizduell',
-      gameTitle: 'Melanie vs. Jutta', // 'Oma & Opa vs. Familie',
+      gameTitle: 'Oma & Opa vs. Familie',
       roundTitle: 'Runde',
-      localName: 'Melanie', // 'Oma & Opa',
-      remoteName: 'Jutta' // 'Familie'
+      localName: 'Oma & Opa',
+      remoteName: 'Familie'
     }
   },
   computed: {
