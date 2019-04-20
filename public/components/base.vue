@@ -25,7 +25,6 @@ html {
 
 body {
   min-height: 100%;
-  overflow: hidden;
   
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   background-color: #0f75a4;
@@ -63,11 +62,11 @@ h1 {
 }
 
 h1.full-page {
-  margin-top: 25vh;
+  padding-top: 25vh;
 }
 
 .local h1.full-page {
-  margin-top: 30vh;
+  padding-top: 30vh;
 }
 
 h2 {
