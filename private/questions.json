@@ -1,14 +1,14 @@
 [
   {
-    "category": "Zeugen der Zeit",
-    "text": "Die Dinosaurier lebten ...?",
+    "category": "Im Labor",
+    "text": "1/4 ist ...??",
     "answers": [
-      "in der Kreide",
-      "knietief im Dispo",
-      "auf Pump",
-      "mit Schulden"
+      "bank Raub",
+      "dieb Stahl",
+      "scheck Betrug",
+      "ein Bruch"
     ],
-    "correctAnswerIndex": 0
+    "correctAnswerIndex": 3
   },
   {
     "category": "Sport & Freizeit",
@@ -44,15 +44,15 @@
     "correctAnswerIndex": 1
   },
   {
-    "category": "Im Labor",
-    "text": "Für welche Entschlüsselung wurde 2017 der Nobelpreis der Medizin verliehen?",
+    "category": "Körper & Geist",
+    "text": "Welches Organ hat die Größe einer geballten Faust, und dient als Speicherort für Monozyten?",
     "answers": [
-      "Innere Uhr des Menschen",
-      "Ribosomale DNA",
-      "Sexualtrieb",
-      "Einfluss der Gezeiten"
+      "Leber",
+      "Milz",
+      "Herz",
+      "Großhirn"
     ],
-    "correctAnswerIndex": 0
+    "correctAnswerIndex": 1
   },
   {
     "category": "Zeugen der Zeit",
