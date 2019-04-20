@@ -89,7 +89,7 @@
   },
   {
     "category": "Sport & Freizeit",
-    "text": "Welcher Tiere sind auf dem Halstuch von Biathlon-Trainer Mark Kirchner abgebildet?",
+    "text": "Welche Tiere sind auf dem Halstuch von Biathlon-Trainer Mark Kirchner abgebildet?",
     "answers": [
       "Frösche",
       "Bienen",
@@ -102,12 +102,12 @@
     "category": "Draußen im Grünen",
     "text": "Wie viele Topfpflanzen hat Oma aktuell in ihrer Wohnung?",
     "answers": [
-      "20",
-      "40",
-      "60",
-      "80"
+      "25",
+      "37",
+      "43",
+      "59"
     ],
-    "correctAnswerIndex": 0
+    "correctAnswerIndex": 2
   },
   {
     "category": "Die 2000er",
@@ -125,9 +125,9 @@
     "text": "Wie heißt der Captain des Raumschiff Enterprise in der Serie TNG?",
     "answers": [
       "Captain Picard",
-      "Captain Cook",
+      "Captain Iglu",
       "Captain Janeway",
-      "Captain Kroll"
+      "Captain Kirk"
     ],
     "correctAnswerIndex": 0
   },
