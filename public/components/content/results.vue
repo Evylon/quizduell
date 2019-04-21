@@ -217,8 +217,8 @@ export default {
 
 #avatar_local {
   grid-area: column_1;
-  width: 80px;
-  height: 68px;
+  width: 100px;
+  height: 100px;
   background-image: url('../../assets/avatar_gisi.png');
   background-size: contain;
   background-position: center;
@@ -238,8 +238,8 @@ export default {
 
 #avatar_remote {
   grid-area: column_3;
-  width: 80px;
-  height: 68px;
+  width: 100px;
+  height: 100px;
   background-image: url('../../assets/avatar_family.png');
   background-size: contain;
   background-position: center;
