@@ -31,5 +31,37 @@
       "120-130 mal"
     ],
     "correctAnswerIndex": 1
+  },{
+    "category": "25 Jahre",
+    "text": "In welchem Jahr hat Robin Kramer Geburtstag?",
+    "answers": [
+      "2002",
+      "2003",
+      "2004",
+      "2005"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "category": "25 Jahre",
+    "text": "Wer hat Silke mit einem falschen Namen angesprochen, als Thomas seine Freundin der Familie vorgestellt hat?",
+    "answers": [
+      "Der Bruder",
+      "der Vater",
+      "die Mutter",
+      "Thomas selbst"
+    ],
+    "correctAnswerIndex": 1
+  },
+  {
+    "category": "25 Jahre",
+    "text": "Frage",
+    "answers": [
+      "richtige Antwort",
+      "falsche Antwort",
+      "falsche Antwort",
+      "falsche Antwort"
+    ],
+    "correctAnswerIndex": 0
   }
 ]
