@@ -1,6 +1,6 @@
 [
   {
-    "category": "25 Jahre",
+    "category": "Familie Kramer",
     "text": "In welchem Jahr wurde Robin Kramer geboren?",
     "answers": [
       "2002",
@@ -11,7 +11,7 @@
     "correctAnswerIndex": 2
   },
   {
-    "category": "25 Jahre",
+    "category": "Familie Kramer",
     "text": "Wer hat Silke mit falschen Namen angesprochen, als Thomas sie seiner Familie vorstellte?",
     "answers": [
       "Der Bruder",
@@ -22,13 +22,13 @@
     "correctAnswerIndex": 1
   },
   {
-    "category": "25 Jahre",
-    "text": "Frage",
+    "category": "Familie Kramer",
+    "text": "Wo hat Silke mehrere Jahre gelebt?",
     "answers": [
-      "richtige Antwort",
-      "falsche Antwort",
-      "falsche Antwort",
-      "falsche Antwort"
+      "Im Waisenhaus",
+      "Im französischen Elsass",
+      "Im Studentenwohnheim in Berlin",
+      "Im katholischen Mädcheninternat"
     ],
     "correctAnswerIndex": 0
   },
