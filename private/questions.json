@@ -12,7 +12,7 @@
   },
   {
     "category": "25 Jahre",
-    "text": "Wer hat Silke mit falschen Namen angesprochen, als Thomas sie seiner Familie vorgestellte?",
+    "text": "Wer hat Silke mit falschen Namen angesprochen, als Thomas sie seiner Familie vorstellte?",
     "answers": [
       "Der Bruder",
       "der Vater",
@@ -37,9 +37,9 @@
     "text": "Welches Hormon wir oft auch \"Schmusehormon\" genannt?",
     "answers": [
       "Oxytocin",
-      "falsche Antwort",
-      "falsche Antwort",
-      "falsche Antwort"
+      "Kisspeptin",
+      "Somatropin",
+      "Melatonin"
     ],
     "correctAnswerIndex": 0
   },
