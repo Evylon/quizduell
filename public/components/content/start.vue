@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       brand: 'Quizduell',
-      gameTitle: 'Oma & Opa vs. Familie'
+      gameTitle: 'Silke & Thomas vs. Familie & Freunde'
     }
   },
   methods: {

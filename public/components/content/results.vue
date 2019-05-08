@@ -95,10 +95,10 @@ export default {
   data() {
     return {
       brand: 'Quizduell',
-      gameTitle: 'Oma & Opa vs. Familie',
+      gameTitle: 'Silke & Thomas vs. Familie & Freunde',
       roundTitle: 'Runde',
-      localName: 'Oma & Opa',
-      remoteName: 'Familie'
+      localName: 'Silke & Thomas',
+      remoteName: 'Familie & Freunde'
     }
   },
   computed: {
@@ -219,7 +219,7 @@ export default {
   grid-area: column_1;
   width: 100px;
   height: 100px;
-  background-image: url('../../assets/avatar_gisi.png');
+  background-image: url('../../assets/avatar_silke-thomas.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

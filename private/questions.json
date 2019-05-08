@@ -1,167 +1,35 @@
 [
   {
-    "category": "Im Labor",
-    "text": "1/4 ist ...??",
+    "category": "Medizin",
+    "text": "Welches Hormon wir oft auch \"Schmusehormon\" genannt?",
     "answers": [
-      "bank Raub",
-      "dieb Stahl",
-      "scheck Betrug",
-      "ein Bruch"
-    ],
-    "correctAnswerIndex": 3
-  },
-  {
-    "category": "Sport & Freizeit",
-    "text": "Wie häufig trafen die Bayern Pfosten oder Latte im der Saison 2018/19 bisher?",
-    "answers": [
-      "5 Mal",
-      "14 Mal",
-      "19 Mal",
-      "27 Mal"
-    ],
-    "correctAnswerIndex": 2
-  },
-  {
-    "category": "Im Labor",
-    "text": "Was ist laut Oma die schwierigste Multiplikation im kleinen Einmaleins?",
-    "answers": [
-      "2x6",
-      "7x7",
-      "7x8",
-      "4x12"
-    ],
-    "correctAnswerIndex": 2
-  },
-  {
-    "category": "Rund um die Welt",
-    "text": "Wie lang ist der längte Straßentunnel Deutschlands?",
-    "answers": [
-      "8.574 Meter",
-      "7.916 Meter",
-      "7.103 Meter",
-      "7.740 Meter"
-    ],
-    "correctAnswerIndex": 1
-  },
-  {
-    "category": "Körper & Geist",
-    "text": "Welches Organ hat die Größe einer geballten Faust, und dient als Speicherort für Monozyten?",
-    "answers": [
-      "Leber",
-      "Milz",
-      "Herz",
-      "Großhirn"
-    ],
-    "correctAnswerIndex": 1
-  },
-  {
-    "category": "Zeugen der Zeit",
-    "text": "Wie machte Opa früher Hausaufgaben?",
-    "answers": [
-      "Ohne Hose",
-      "Ohne Stifte",
-      "Ohne Bücher",
-      "Ohne Stuhl"
+      "Oxytocin",
+      "falsche Antwort",
+      "falsche Antwort",
+      "falsche Antwort"
     ],
     "correctAnswerIndex": 0
   },
   {
-    "category": "Bücher & Wörter",
-    "text": "Was ist richtig geschrieben?",
+    "category": "Medizin",
+    "text": "Welcher ihrer Ängste hat sich Silke zusammen mit ihrer Familie in den letzten 25 Jahren öfter gestellt?",
     "answers": [
-      "Grießklöschensuppe",
-      "Griessklöschensuppe",
-      "Griessklösschensuppe",
-      "Grießklößchensuppe"
-    ],
-    "correctAnswerIndex": 3
-  },
-  {
-    "category": "Comics",
-    "text": "Wie lauten die Namen der berühmten gallischen Comic-Helden?",
-    "answers": [
-      "Asterix & Obelix",
-      "Fix & Foxi",
-      "Trick & Track",
-      "Micky & Minnie"
+      "Akrophobie",
+      "Deipnophobie",
+      "Sesquipedalophobie",
+      "Nomophobie"
     ],
     "correctAnswerIndex": 0
   },
   {
-    "category": "Sport & Freizeit",
-    "text": "Welche Tiere sind auf dem Halstuch von Biathlon-Trainer Mark Kirchner abgebildet?",
+    "category": "Medizin",
+    "text": "Wie oft schlägt das Herz eines verliebten Menschen durchschnittlich pro Minute?",
     "answers": [
-      "Frösche",
-      "Bienen",
-      "Schafe",
-      "Bären"
-    ],
-    "correctAnswerIndex": 2
-  },
-  {
-    "category": "Draußen im Grünen",
-    "text": "Wie viele Topfpflanzen hat Oma aktuell in ihrer Wohnung?",
-    "answers": [
-      "25",
-      "37",
-      "43",
-      "59"
-    ],
-    "correctAnswerIndex": 2
-  },
-  {
-    "category": "Die 2000er",
-    "text": "Was mussten Oma & Opa früher stundenlang ertragen?",
-    "answers": [
-      "Käsebrot",
-      "Fischbrötchen",
-      "Cheeseburger",
-      "Avocadotoast"
+      "40-60 mal",
+      "70-80 mal",
+      "90-110 mal",
+      "120-130 mal"
     ],
     "correctAnswerIndex": 1
-  },
-  {
-    "category": "TV-Serien",
-    "text": "Wie heißt der Captain des Raumschiff Enterprise in der Serie TNG?",
-    "answers": [
-      "Captain Picard",
-      "Captain Iglu",
-      "Captain Janeway",
-      "Captain Kirk"
-    ],
-    "correctAnswerIndex": 0
-  },
-  {
-    "category": "Medien & Unterhaltung",
-    "text": "Wer wurde 2018 von der Zeitschrift \"People\" zum \"Sexiest Man Alive\" gewählt?",
-    "answers": [
-      "Daniel Craig",
-      "Idris Elba",
-      "Tom Hardy",
-      "Hans E. Fehringer"
-    ],
-    "correctAnswerIndex": 1
-  },
-  {
-    "category": "Die 2000er",
-    "text": "Was hatte Tilman in seinem Zimmer?",
-    "answers": [
-      "Gemischte Kleidung",
-      "Diverse Wäsche",
-      "Unterschiedliche Anziehsachen",
-      "Vermengte Hemden"
-    ],
-    "correctAnswerIndex": 0
-  },
-  {
-    "category": "Medien & Unterhaltung",
-    "text": "Welcher Künstler tritt am 05.05.2019 in der Messe-Halle Erfurt auf?",
-    "answers": [
-      "David Hasselhoff",
-      "David Guetta",
-      "David Garrett",
-      "David Bowie"
-    ],
-    "correctAnswerIndex": 2
   }
 ]
