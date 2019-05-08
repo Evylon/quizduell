@@ -64,5 +64,38 @@
       "120-130 mal"
     ],
     "correctAnswerIndex": 1
+  },
+  {
+    "category": "Hochzeit",
+    "text": "Welche Farbe hatte Thomas Krawatte bei der kirchlichen Trauung?",
+    "answers": [
+      "Schwarz",
+      "Blau",
+      "Er trug eine Fliege",
+      "Er trug weder Krawatte noch Fliege"
+    ],
+    "correctAnswerIndex": 2
+  },
+  {
+    "category": "Hochzeit",
+    "text": "Wer trug zwei verschiedene Kleider auf der kirchlichen Trauung?",
+    "answers": [
+      "Lisa Hellmers",
+      "$Thomas Mutter",
+      "$Silkes Mutter",
+      "Anke Rust"
+    ],
+    "correctAnswerIndex": 3
+  },
+  {
+    "category": "Hochzeit",
+    "text": "Frage",
+    "answers": [
+      "richtige Antwort",
+      "richtige Antwort",
+      "falsche Antwort",
+      "falsche Antwort"
+    ],
+    "correctAnswerIndex": 1
   }
 ]
