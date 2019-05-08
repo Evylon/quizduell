@@ -35,6 +35,7 @@ body {
   background-size: cover;
   background-position: bottom center;
   background-repeat: no-repeat;
+  background-attached: fixed;
 
   overflow-wrap: break-word;
   word-wrap: break-word;
