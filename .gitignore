@@ -51,3 +51,6 @@ jspm_packages
 # ignore the build folder
 dist
 build
+
+# my images
+public/assets/Silke*
