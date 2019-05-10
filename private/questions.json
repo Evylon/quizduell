@@ -81,21 +81,21 @@
     "text": "Wer trug zwei verschiedene Kleider auf der kirchlichen Trauung?",
     "answers": [
       "Lisa Hellmers",
-      "$Thomas Mutter",
-      "$Silkes Mutter",
+      "Hanni Pregla",
+      "Ruth Kramer",
       "Anke Rust"
     ],
     "correctAnswerIndex": 3
   },
   {
     "category": "Hochzeit",
-    "text": "Frage",
+    "text": "Welches ist keine Hochzeitstradition",
     "answers": [
-      "richtige Antwort",
-      "richtige Antwort",
-      "falsche Antwort",
-      "falsche Antwort"
+      "Einen Baumstamm durchsägen",
+      "Den Bräutigamm entführen und ausziehen",
+      "Den Brautstrauß werfen",
+      "Der Bräutigam muss 7 Tage nicht duschen"
     ],
-    "correctAnswerIndex": 1
+    "correctAnswerIndex": 3
   }
 ]
